@@ -16,7 +16,8 @@ public class SentenceGrammarParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		Punctuation=1, SUBJECT=2, VERB=3, OBJECT=4, ARTICLE=5, CONJUCTION=6;
+		COORDINATOR=1, CONJUNCTION=2, SUBJECT=3, VERB=4, OBJECT=5, ARTICLE=6, 
+		PUNCTUATION=7, WS=8;
 	public static final int
 		RULE_sentences = 0, RULE_simpleSentence = 1, RULE_compoundSentence = 2;
 	private static String[] makeRuleNames() {
@@ -33,7 +34,8 @@ public class SentenceGrammarParser extends Parser {
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, "Punctuation", "SUBJECT", "VERB", "OBJECT", "ARTICLE", "CONJUCTION"
+			null, "COORDINATOR", "CONJUNCTION", "SUBJECT", "VERB", "OBJECT", "ARTICLE", 
+			"PUNCTUATION", "WS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -91,7 +93,7 @@ public class SentenceGrammarParser extends Parser {
 		public SimpleSentenceContext simpleSentence() {
 			return getRuleContext(SimpleSentenceContext.class,0);
 		}
-		public TerminalNode Punctuation() { return getToken(SentenceGrammarParser.Punctuation, 0); }
+		public TerminalNode PUNCTUATION() { return getToken(SentenceGrammarParser.PUNCTUATION, 0); }
 		public CompoundSentenceContext compoundSentence() {
 			return getRuleContext(CompoundSentenceContext.class,0);
 		}
@@ -122,7 +124,7 @@ public class SentenceGrammarParser extends Parser {
 				setState(6);
 				simpleSentence();
 				setState(7);
-				match(Punctuation);
+				match(PUNCTUATION);
 				}
 				break;
 			case 2:
@@ -131,7 +133,7 @@ public class SentenceGrammarParser extends Parser {
 				setState(9);
 				compoundSentence();
 				setState(10);
-				match(Punctuation);
+				match(PUNCTUATION);
 				}
 				break;
 			}
@@ -151,7 +153,10 @@ public class SentenceGrammarParser extends Parser {
 		public TerminalNode SUBJECT() { return getToken(SentenceGrammarParser.SUBJECT, 0); }
 		public TerminalNode VERB() { return getToken(SentenceGrammarParser.VERB, 0); }
 		public TerminalNode OBJECT() { return getToken(SentenceGrammarParser.OBJECT, 0); }
-		public TerminalNode ARTICLE() { return getToken(SentenceGrammarParser.ARTICLE, 0); }
+		public List<TerminalNode> ARTICLE() { return getTokens(SentenceGrammarParser.ARTICLE); }
+		public TerminalNode ARTICLE(int i) {
+			return getToken(SentenceGrammarParser.ARTICLE, i);
+		}
 		public SimpleSentenceContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -169,34 +174,36 @@ public class SentenceGrammarParser extends Parser {
 	public final SimpleSentenceContext simpleSentence() throws RecognitionException {
 		SimpleSentenceContext _localctx = new SimpleSentenceContext(_ctx, getState());
 		enterRule(_localctx, 2, RULE_simpleSentence);
+		int _la;
 		try {
-			setState(21);
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(15);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,1,_ctx) ) {
-			case 1:
-				enterOuterAlt(_localctx, 1);
+			_la = _input.LA(1);
+			if (_la==ARTICLE) {
 				{
 				setState(14);
-				match(SUBJECT);
-				setState(15);
-				match(VERB);
-				setState(16);
-				match(OBJECT);
+				match(ARTICLE);
 				}
-				break;
-			case 2:
-				enterOuterAlt(_localctx, 2);
+			}
+
+			setState(17);
+			match(SUBJECT);
+			setState(18);
+			match(VERB);
+			setState(20);
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			if (_la==ARTICLE) {
 				{
-				setState(17);
-				match(SUBJECT);
-				setState(18);
-				match(VERB);
 				setState(19);
 				match(ARTICLE);
-				setState(20);
-				match(OBJECT);
 				}
-				break;
+			}
+
+			setState(22);
+			match(OBJECT);
 			}
 		}
 		catch (RecognitionException re) {
@@ -217,7 +224,7 @@ public class SentenceGrammarParser extends Parser {
 		public SimpleSentenceContext simpleSentence(int i) {
 			return getRuleContext(SimpleSentenceContext.class,i);
 		}
-		public TerminalNode CONJUCTION() { return getToken(SentenceGrammarParser.CONJUCTION, 0); }
+		public TerminalNode CONJUNCTION() { return getToken(SentenceGrammarParser.CONJUNCTION, 0); }
 		public CompoundSentenceContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -238,11 +245,11 @@ public class SentenceGrammarParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(23);
-			simpleSentence();
 			setState(24);
-			match(CONJUCTION);
+			simpleSentence();
 			setState(25);
+			match(CONJUNCTION);
+			setState(26);
 			simpleSentence();
 			}
 		}
@@ -258,14 +265,15 @@ public class SentenceGrammarParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\b\36\4\2\t\2\4\3"+
-		"\t\3\4\4\t\4\3\2\3\2\3\2\3\2\3\2\3\2\5\2\17\n\2\3\3\3\3\3\3\3\3\3\3\3"+
-		"\3\3\3\5\3\30\n\3\3\4\3\4\3\4\3\4\3\4\2\2\5\2\4\6\2\2\2\34\2\16\3\2\2"+
-		"\2\4\27\3\2\2\2\6\31\3\2\2\2\b\t\5\4\3\2\t\n\7\3\2\2\n\17\3\2\2\2\13\f"+
-		"\5\6\4\2\f\r\7\3\2\2\r\17\3\2\2\2\16\b\3\2\2\2\16\13\3\2\2\2\17\3\3\2"+
-		"\2\2\20\21\7\4\2\2\21\22\7\5\2\2\22\30\7\6\2\2\23\24\7\4\2\2\24\25\7\5"+
-		"\2\2\25\26\7\7\2\2\26\30\7\6\2\2\27\20\3\2\2\2\27\23\3\2\2\2\30\5\3\2"+
-		"\2\2\31\32\5\4\3\2\32\33\7\b\2\2\33\34\5\4\3\2\34\7\3\2\2\2\4\16\27";
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\n\37\4\2\t\2\4\3"+
+		"\t\3\4\4\t\4\3\2\3\2\3\2\3\2\3\2\3\2\5\2\17\n\2\3\3\5\3\22\n\3\3\3\3\3"+
+		"\3\3\5\3\27\n\3\3\3\3\3\3\4\3\4\3\4\3\4\3\4\2\2\5\2\4\6\2\2\2\36\2\16"+
+		"\3\2\2\2\4\21\3\2\2\2\6\32\3\2\2\2\b\t\5\4\3\2\t\n\7\t\2\2\n\17\3\2\2"+
+		"\2\13\f\5\6\4\2\f\r\7\t\2\2\r\17\3\2\2\2\16\b\3\2\2\2\16\13\3\2\2\2\17"+
+		"\3\3\2\2\2\20\22\7\b\2\2\21\20\3\2\2\2\21\22\3\2\2\2\22\23\3\2\2\2\23"+
+		"\24\7\5\2\2\24\26\7\6\2\2\25\27\7\b\2\2\26\25\3\2\2\2\26\27\3\2\2\2\27"+
+		"\30\3\2\2\2\30\31\7\7\2\2\31\5\3\2\2\2\32\33\5\4\3\2\33\34\7\4\2\2\34"+
+		"\35\5\4\3\2\35\7\3\2\2\2\5\16\21\26";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
