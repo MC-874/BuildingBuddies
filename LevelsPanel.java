@@ -1,4 +1,4 @@
-public class LevelsPanel extends JFrame{
+public class LevelsPanel extends JPanel{
 
     LevelsPanel(){
 
