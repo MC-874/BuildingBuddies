@@ -3,7 +3,7 @@ grammar SentenceGrammar;
 // Parser Rules
 sentences : simpleSentence PUNCTUATION | compoundSentence PUNCTUATION;
 simpleSentence : ARTICLE? SUBJECT VERB ARTICLE? OBJECT;
-compoundSentence : simpleSentence CONJUCTION simpleSentence;
+compoundSentence : simpleSentence PUNCTUATION CONJUCTION simpleSentence;
 
 
 // Lexer Rules
