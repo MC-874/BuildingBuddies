@@ -13,7 +13,7 @@ public class BuildBuddiesMainWindow extends JFrame {
         setTitle("Building Buddies");
         cLayout= new CardLayout();
         setLayout(cLayout);
-        setSize(500,700);
+        setSize(600,700);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
        
 
@@ -21,14 +21,29 @@ public class BuildBuddiesMainWindow extends JFrame {
 
         StartPanel startPanel = new StartPanel();
         //startPanel's button actionLister
+        startPanel.startButton.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                //method for startbutton, goes to next 
+                cLayout.next(panelContainer);
+            }
+        });
+
+        startPanel.exitButton.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                //method for exitButton
+                dispose();
+                System.exit(0);
+            }
+        });
 
         LevelsPanel levelsPanel = new LevelsPanel();
         //startPanel's button actionLister
+        
 
 
         //add to the frame
         panelContainer.add(startPanel, "1"); //need -?? 'panelContainer'??
-        //panelContainer.add(levelsPanel, "2");
+        panelContainer.add(levelsPanel, "2");
         //panelContainer.add(cardPanel3, "3");
 
         //set card1 to visable &fram to visable
