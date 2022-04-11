@@ -3,12 +3,12 @@ grammar SentenceGrammar;
 // Parser Rules
 sentences : simpleSentence PUNCTUATION | compoundSentence PUNCTUATION;
 simpleSentence : ARTICLE? SUBJECT VERB ARTICLE? OBJECT;
-compoundSentence : simpleSentence PUNCTUATION CONJUCTION simpleSentence;
+compoundSentence : simpleSentence CONJUCTION simpleSentence;
 
 
 // Lexer Rules
 COORDINATOR : 'and' | 'but' | 'though' | 'or' | ',' ;
-CONJUNCTION : COORDINATOR | COORDINATOR ',';
+CONJUNCTION : COORDINATOR | ',' COORDINATOR ;
 SUBJECT : 'Cat' | 'Dog'  | 'Toy' | 'Bear'  | 'I' | 'You' | 'They' | 'We' | 'Bird' | 'Mouse' ; 
 VERB : 'ran' | 'ate' | 'went' | 'choose' | 'eats' | 'play' ; 
 OBJECT : 'far' | 'food' | 'home' | 'guitar' | 'outside' | 'school' ;
