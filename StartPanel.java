@@ -12,21 +12,23 @@ public class StartPanel extends JPanel {
         setLayout(bLayout);  //format card panel
 
         //create and format title label
-        JPanel titlePanel = new JPanel();
-        BoxLayout titleLayout =new BoxLayout(titlePanel, BoxLayout.Y_AXIS);
-        titlePanel.setLayout(titleLayout);
+        JPanel titlePanel = new JPanel(new BorderLayout());
+        //BoxLayout titleLayout =new BoxLayout(titlePanel, BoxLayout.Y_AXIS);
+        //titlePanel.setLayout(titleLayout);
 
         JLabel titleLabel1 = new JLabel("Welcome to ");
-        JLabel titleLabel2 = new JLabel("Building Buddies!");
-        titleLabel2.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 36));
         titleLabel1.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 36));
         titleLabel1.setForeground(Color.BLUE);
+        titleLabel1.setHorizontalAlignment(JLabel.CENTER);
+        JLabel titleLabel2 = new JLabel("Building Buddies!");
+        titleLabel2.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 36));
         titleLabel2.setForeground(Color.BLUE);
-        titlePanel.add(titleLabel1);
-        titlePanel.add(titleLabel2);
+        titleLabel2.setHorizontalAlignment(JLabel.CENTER);
+        titlePanel.add(titleLabel1, BorderLayout.NORTH);
+        titlePanel.add(titleLabel2, BorderLayout.SOUTH);
         titlePanel.setPreferredSize(new Dimension(500,150));
         titlePanel.setMaximumSize(new Dimension(500,150));
-        titlePanel.setBackground(Color.CYAN);
+        //titlePanel.setBackground(Color.CYAN);
 
         //format buttons
         Font buttonFont = new Font(Font.SANS_SERIF, Font.ITALIC, 26);
