@@ -3,7 +3,7 @@ import java.awt.*;
 
 public class StartPanel extends JPanel {
     JButton startButton = new JButton("        Start Game        ");
-    JButton exitButton = new JButton("     Exit Game     ");
+    JButton exitButton = new JButton("        Exit Game        ");
     Container startContainer=this.getRootPane();
     BoxLayout bLayout=new BoxLayout(this, BoxLayout.Y_AXIS);
 
