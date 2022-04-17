@@ -1,12 +1,13 @@
+ MC-874-patch-1
 import javax.swing.JPanel;
 
 public class LevelsPanel extends JPanel{
 
     LevelsPanel(){
         int score;
-        String[] nounVariables;
-        String[] verbVariables;
-        String[] subjectVariables;
+        String[] nounVariables = {"Cat", "Dog", "Toy", "Bear", "I", "You", "They", "We", "Bird", "Mouse"};
+        String[] verbVariables = {"ran", "ate", "went", "choose", "eats", "play"};
+        String[] objectVariables = {"far", "food", "home", "guitar", "outside", "school"};
         
         //set panel format (BoxLayout)
         //set panel format( boxLayout)
