@@ -13,7 +13,9 @@ public class LevelsPanel extends JPanel{
 
         //create format scoretotal Label
 
-
+        //add scoreJLabel & scoretotalLabel to scoreJPanel
+        
+        
 
         //line 2
         //create titleLabel JLabel w/set Horizontal alignement = jlabel.center
