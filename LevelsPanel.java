@@ -4,6 +4,7 @@ import java.awt.*;
 public class LevelsPanel extends JPanel{
         JButton checkButton = new JButton("   Check your Sentence   ");
         JButton exitButton = new JButton("        Exit Game        ");
+        BoxLayout bLayout=new BoxLayout(this, BoxLayout.Y_AXIS);
 
     LevelsPanel(){
         int score;
@@ -12,6 +13,7 @@ public class LevelsPanel extends JPanel{
         String[] objectVariables = {"far", "food", "home", "guitar", "outside", "school"};
         
         //set panel format (BoxLayout)
+        setLayout(bLayout);
         //set panel format( boxLayout)
 
         
@@ -42,42 +44,50 @@ public class LevelsPanel extends JPanel{
         //for inside noun panel
         //create &format nounLabel
 
-        //create & format nounTextfield
+        //create & format nounTextArea
 
         //add nounLabel and nounTextfield to nounPanel
 
 
         //create userInputPanel
-
+        JPanel userInputPanel= new JPanel();
+        userInputPanel.setLayout(new BoxLayout(userInputPanel , BoxLayout.Y_AXIS));
         //inside userInputPanel:
         //create instructionLabel
+        JLabel instructionLabel = new JLabel("Insert your Sentence:");
+        instructionLabel.setFont(new Font("titleFont", Font.BOLD, 24));
+        //create userInputTextField
+        JTextField userInputTextField = new JTextField("Type your sentences here (using the above word bank)",20);
+        userInputTextField.setEditable(true);
+        userInputTextField.setFont(new Font(Font.SANS_SERIF, Font.ROMAN_BASELINE, 18));
+        //userInputTextField.setLineWrap(true); only for JtextArea
 
-        //create userInputTextfield
-
-        //add instructionLabel to JPanel
-
-        //add userInputTextField to Jpanel
+        //add instructionLabel to userInputPanel JPanel
+        userInputPanel.add(instructionLabel);
+        //add userInputTextArea to userInputPanel Jpanel
+        userInputPanel.add(userInputTextField);
 
 
         //format buttons
         Font buttonFont = new Font(Font.SANS_SERIF, Font.ITALIC, 26);
         //format check your sentence buttton
         checkButton.setFont(buttonFont);
-        checkButton.setForeground(Color.GREEN);
+        checkButton.setForeground(Color.BLUE);
         checkButton.setAlignmentY(Component.CENTER_ALIGNMENT);
         checkButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         checkButton.setMinimumSize(new Dimension(300,50));
 
         //format exitGame button
         exitButton.setFont(buttonFont);
-        exitButton.setForeground(Color.red);
+        exitButton.setForeground(Color.RED);
         exitButton.setAlignmentY(Component.CENTER_ALIGNMENT);
         exitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         exitButton.setMinimumSize(new Dimension(300,50));
 
         //add everything to main panel
-        //add(component);
+        //add(component); 
 
+        add(userInputPanel); //contains instructions and inputTextField
         add(checkButton);
         add(createBlankPanel(300, 20));
         add(exitButton);
