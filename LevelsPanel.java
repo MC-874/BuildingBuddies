@@ -1,7 +1,9 @@
- MC-874-patch-1
-import javax.swing.JPanel;
+import javax.swing.*;
+import java.awt.*;
 
 public class LevelsPanel extends JPanel{
+        JButton checkButton = new JButton("   Check your Sentence   ");
+        JButton exitButton = new JButton("        Exit Game        ");
 
     LevelsPanel(){
         int score;
@@ -52,10 +54,45 @@ public class LevelsPanel extends JPanel{
 
         //create userInputTextfield
 
+        //add instructionLabel to JPanel
 
-        //line 3
+        //add userInputTextField to Jpanel
+
+
+        //format buttons
+        Font buttonFont = new Font(Font.SANS_SERIF, Font.ITALIC, 26);
+        //format check your sentence buttton
+        checkButton.setFont(buttonFont);
+        checkButton.setForeground(Color.GREEN);
+        checkButton.setAlignmentY(Component.CENTER_ALIGNMENT);
+        checkButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        checkButton.setMinimumSize(new Dimension(300,50));
+
+        //format exitGame button
+        exitButton.setFont(buttonFont);
+        exitButton.setForeground(Color.red);
+        exitButton.setAlignmentY(Component.CENTER_ALIGNMENT);
+        exitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        exitButton.setMinimumSize(new Dimension(300,50));
+
+        //add everything to main panel
+        //add(component);
+
+        add(checkButton);
+        add(createBlankPanel(300, 20));
+        add(exitButton);
+
 
 
     }
     
+    //create blank panels method
+    JPanel createBlankPanel(int x, int y){
+        JPanel blankPanel = new JPanel();
+        //blankPanel.setSize(x,y);
+        blankPanel.setMaximumSize(new Dimension(x, y));
+        blankPanel.setPreferredSize(new Dimension(x, y));
+        //blankPanel.setBackground(Color.BLACK);
+        return blankPanel;
+    }
 }
