@@ -79,18 +79,25 @@ public class LevelsPanel extends JPanel{
         
         // Create Verb Panel
         JPanel verbPanel = new JPanel();
+        verbPanel.setPreferredSize(new Dimension(400,50));
+        verbPanel.setLayout(new BorderLayout());
         
         // Format verbPanel
         //verbPanel =   
         
+        // add Verb Panel
+        add(verbPanel);
         
         // Create SubjectPanel
         JPanel subjectPanel = new JPanel();
+        subjectPanel.setPreferredSize(new Dimension(400,50));
+        subjectPanel.setLayout(new BorderLayout());
         
+        add(subjectPanel);
         
        
-        middlepanel.add(verbPanel);
-        add(subjectPanel, BorderLayout.EAST);
+        //middlepanel.add(verbPanel);
+        //add(subjectPanel, BorderLayout.EAST);
 
         
         
