@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import javax.swing.JComponent;
+import javax.swing.SwingUtilities;
 
 public class LevelsPanel extends JPanel{
         JButton checkButton = new JButton("   Check your Sentence   ");
@@ -14,38 +16,40 @@ public class LevelsPanel extends JPanel{
         
         //set panel format (BoxLayout)
         setLayout(bLayout);
-        //set panel format( boxLayout)
 
         
-        //line 1
-        //create & format score jpanel
-
-        //Create & format score jlabel
-
-        //create format scoretotal Label
+        //Create & format score JPanel
+        JPanel scorePanel = new JPanel();
+        scorePanel.setLayout(new BoxLayout(scorePanel , BoxLayout.Y_AXIS));
+       
+        
+        //Create & format score JLabel in scorePanel        
+        JLabel scoreLabel = new JLabel("Score: ");
+        scoreLabel.setFont(new Font("titleFont", Font.BOLD, 20));
+        
+        
+        //create format scoreTotal Label 
+        JLabel scoreTotalLabel = new JLabel("Total Score: ");
+        scoreTotalLabel.setFont(new Font("titleFont", Font.BOLD, 30));
+        
         
         //add scoreJLabel & scoretotalLabel to scoreJPanel
-
-
-
         //add scoreJLabel & scoretotalLabel to scoreJPanel
+        scorePanel.add(scoreLabel);       
+        scorePanel.add(scoreTotalLabel);
+        add(scorePanel);
         
-        
-
+             
+       
         //line 2
-        //create titleLabel JLabel w/set Horizontal alignement = jlabel.center
-
+        //create titleLabel JLabel w/set Horizontal alignment = jlabel.center
 
         //line 3-5
         //create middlepanel, type JPanel
-
         //create & format nounPanel
-
         //for inside noun panel
         //create &format nounLabel
-
         //create & format nounTextArea
-
         //add nounLabel and nounTextfield to nounPanel
 
 
@@ -67,6 +71,7 @@ public class LevelsPanel extends JPanel{
         //add userInputTextArea to userInputPanel Jpanel
         userInputPanel.add(userInputTextField);
 
+       
 
         //format buttons
         Font buttonFont = new Font(Font.SANS_SERIF, Font.ITALIC, 26);
