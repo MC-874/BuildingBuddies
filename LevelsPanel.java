@@ -5,6 +5,8 @@ import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -50,27 +52,29 @@ public class LevelsPanel extends JPanel{
       
         //line 3-5
         //create middlepanel, type JPanel
-        JPanel middlepanel = new JPanel();
+        JPanel middlepanel = new JPanel(new GridLayout());
+       
         
         
         //create & format nounPanel
-        JPanel nounPanel = new JPanel();
+        JPanel nounPanel = new JPanel(new BorderLayout());
         //for inside noun panel
-        setSize(400,50);
+        nounPanel.setPreferredSize(new Dimension(400,50));
         nounPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
              
         
         //create &format nounLabel
         JLabel nounLabel = new JLabel("Nouns: ");
-        //nounLabel.setLayout(new BorderLayout());;
+        nounLabel.setLayout(new BorderLayout());
                
         //create & format nounTextfield
         JTextField nounTextField = new JTextField();
         
        
         //add nounLabel and nounTextfield to nounPanel
-        nounPanel.add(nounLabel, BorderLayout.EAST);
-        nounPanel.add(nounTextField, BorderLayout.WEST);
+        add(nounLabel, BorderLayout.EAST);
+        add(nounTextField, BorderLayout.WEST);
+        
         
         
         // Create Verb Panel
@@ -84,9 +88,9 @@ public class LevelsPanel extends JPanel{
         JPanel subjectPanel = new JPanel();
         
         
-        middlepanel.add(nounPanel);
+       
         middlepanel.add(verbPanel);
-        middlepanel.add(subjectPanel);
+        add(subjectPanel, BorderLayout.EAST);
 
         
         
