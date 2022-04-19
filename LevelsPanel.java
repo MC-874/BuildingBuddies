@@ -148,11 +148,11 @@ public class LevelsPanel extends JPanel{
         //add everything to main panel
         //add(component); 
 
-        add(userInputPanel); //contains instructions and inputTextField
+        add(outerUserPanel); //contains instructions and inputTextField
         add(checkButton);
         add(createBlankPanel(300, 20));
         add(exitButton);
-        //add(createBlankPanel(300, 20));
+        add(createBlankPanel(300, 20));
 
 
 
