@@ -1,25 +1,38 @@
-import javax.swing.*;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 public class LevelsPanel extends JPanel{
-        JButton checkButton = new JButton("   Check your Sentence   ");
-        JButton exitButton = new JButton("        Exit Game        ");
-        BoxLayout bLayout=new BoxLayout(this, BoxLayout.Y_AXIS);
+    	JButton checkButton = new JButton("   Check your Sentence   ");
+    	JButton exitButton = new JButton("        Exit Game        ");
 
     LevelsPanel(){
-        int score;
-        String[] nounVariables = {"Cat", "Dog", "Toy", "Bear", "I", "You", "They", "We", "Bird", "Mouse"};
-        String[] verbVariables = {"ran", "ate", "went", "choose", "eats", "play"};
-        String[] objectVariables = {"far", "food", "home", "guitar", "outside", "school"};
+    	int score;
+    	String[] nounVariables = {"Cat", "Dog", "Toy", "Bear", "I", "You", "They", "We", "Bird", "Mouse"};
+    	String[] verbVariables = {"ran", "ate", "went", "choose", "eats", "play"};
+    	String[] objectVariables = {"far", "food", "home", "guitar", "outside", "school"};
         
-        //set panel format (BoxLayout)
-        setLayout(bLayout);
+		//set panel format (BoxLayout)
         //set panel format( boxLayout)
 
         
         //line 1
         //create & format score jpanel
-
+        JPanel scorePanel = new JPanel();
+        scorePanel.setLayout(new BoxLayout(scorePanel, BoxLayout.Y_AXIS));
+        scorePanel.setAlignmentX(Component.LEFT_ALIGNMENT);
         //Create & format score jlabel
 
         //create format scoretotal Label
@@ -36,19 +49,58 @@ public class LevelsPanel extends JPanel{
         //create titleLabel JLabel w/set Horizontal alignement = jlabel.center
 
 
+      
         //line 3-5
         //create middlepanel, type JPanel
-
+        JPanel middlepanel = new JPanel(new GridLayout());
+       
+        
+        
         //create & format nounPanel
-
+        JPanel nounPanel = new JPanel(new BorderLayout());
         //for inside noun panel
+        nounPanel.setPreferredSize(new Dimension(400,50));
+        nounPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
+             
+        
         //create &format nounLabel
-
-        //create & format nounTextArea
-
+        JLabel nounLabel = new JLabel("Nouns: ");
+        nounLabel.setLayout(new BorderLayout());
+               
+        //create & format nounTextfield
+        JTextField nounTextField = new JTextField();
+        
+       
         //add nounLabel and nounTextfield to nounPanel
+        add(nounLabel, BorderLayout.EAST);
+        add(nounTextField, BorderLayout.WEST);
+        
+        
+        
+        // Create Verb Panel
+        JPanel verbPanel = new JPanel();
+        verbPanel.setPreferredSize(new Dimension(400,50));
+        verbPanel.setLayout(new BorderLayout());
+        
+        // Format verbPanel
+        //verbPanel =   
+        
+        // add Verb Panel
+        add(verbPanel);
+        
+        // Create SubjectPanel
+        JPanel subjectPanel = new JPanel();
+        subjectPanel.setPreferredSize(new Dimension(400,50));
+        subjectPanel.setLayout(new BorderLayout());
+        
+        add(subjectPanel);
+        
+       
+        //middlepanel.add(verbPanel);
+        //add(subjectPanel, BorderLayout.EAST);
 
-
+        
+        
         //create userInputPanel
         JPanel userInputPanel= new JPanel();
         userInputPanel.setLayout(new BoxLayout(userInputPanel , BoxLayout.Y_AXIS));
@@ -70,7 +122,7 @@ public class LevelsPanel extends JPanel{
 
         //format buttons
         Font buttonFont = new Font(Font.SANS_SERIF, Font.ITALIC, 26);
-        //format check your sentence buttton
+        //format check your sentence button
         checkButton.setFont(buttonFont);
         checkButton.setForeground(Color.BLUE);
         checkButton.setAlignmentY(Component.CENTER_ALIGNMENT);
