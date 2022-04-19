@@ -37,7 +37,21 @@ public class BuildBuddiesMainWindow extends JFrame {
         });
 
         LevelsPanel levelsPanel = new LevelsPanel();
-        //startPanel's button actionLister
+        //levelsPanels's button actionLister
+        levelsPanel.checkButton.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                //method for checkbutton
+                JOptionPane.showMessageDialog(null, "Computer comparing grammar file to user input.");
+            }
+        });
+
+        levelsPanel.exitButton.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                //method for exitButton
+                dispose();
+                System.exit(0);
+            }
+        });
         
 
 
