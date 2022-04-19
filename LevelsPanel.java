@@ -5,6 +5,7 @@ import javax.swing.*;
 public class LevelsPanel extends JPanel{
     	JButton checkButton = new JButton("   Check your Sentence   ");
     	JButton exitButton = new JButton("        Exit Game        ");
+        BoxLayout bLayout= new BoxLayout(this, BoxLayout.Y_AXIS);
 
     LevelsPanel(){
     	int score;
