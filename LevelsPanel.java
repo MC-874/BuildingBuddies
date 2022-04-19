@@ -12,31 +12,33 @@ public class LevelsPanel extends JPanel{
     	String[] verbVariables = {"ran", "ate", "went", "choose", "eats", "play"};
     	String[] objectVariables = {"far", "food", "home", "guitar", "outside", "school"};
         
-		//set panel format (BoxLayout)
-        //set panel format( boxLayout)
+	//set panel format (BoxLayout)
+        setLayout(bLayout);
 
         
-        //line 1
-        //create & format score jpanel
+        //Create & format score JPanel
         JPanel scorePanel = new JPanel();
-        scorePanel.setLayout(new BoxLayout(scorePanel, BoxLayout.Y_AXIS));
-        scorePanel.setAlignmentX(Component.LEFT_ALIGNMENT);
-        //Create & format score jlabel
-
-        //create format scoretotal Label
+        scorePanel.setLayout(new BoxLayout(scorePanel , BoxLayout.Y_AXIS));
+       
+        
+        //Create & format score JLabel in scorePanel        
+        JLabel scoreLabel = new JLabel("Score: ");
+        scoreLabel.setFont(new Font("titleFont", Font.BOLD, 20));
+        
+        
+        //create format scoreTotal Label 
+        JLabel scoreTotalLabel = new JLabel("Total Score: ");
+        scoreTotalLabel.setFont(new Font("titleFont", Font.BOLD, 30));
+        
+        //create titleLabel JLabel w/set Horizontal alignment = jlabel.center
+        JLabel titleLabel = new JLabel("Build a simple sentence ");
         
         //add scoreJLabel & scoretotalLabel to scoreJPanel
-
-
-
-        //add scoreJLabel & scoretotalLabel to scoreJPanel
         
-        
-
-        //line 2
-        //create titleLabel JLabel w/set Horizontal alignement = jlabel.center
-
-
+        scorePanel.add(scoreLabel);       
+        scorePanel.add(scoreTotalLabel);
+        scorePanel.add(titleLabel);
+        add(scorePanel);
       
         //line 3-5
         //create middlepanel, type JPanel
