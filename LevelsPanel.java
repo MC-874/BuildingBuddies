@@ -9,6 +9,7 @@ public class LevelsPanel extends JPanel{
         
     LevelsPanel(){
     	int score=0;
+        int level=1;
     	String[] nounVariables = {"Cat", "Dog", "Toy", "Bear", "I", "You", "They", "We", "Bird", "Mouse"};
     	String[] verbVariables = {"ran", "ate", "went", "choose", "eats", "play"};
     	String[] objectVariables = {"far", "food", "home", "guitar", "outside", "school"};
@@ -28,7 +29,7 @@ public class LevelsPanel extends JPanel{
         
         
         //create format scoreTotal Label 
-        JLabel scoreTotalLabel = new JLabel("Level: ");
+        JLabel scoreTotalLabel = new JLabel("Level: "+level);
         scoreTotalLabel.setFont(new Font("titleFont", Font.BOLD, 20));
         
         //create titleLabel JLabel w/set Horizontal alignment = jlabel.center
@@ -57,18 +58,20 @@ public class LevelsPanel extends JPanel{
         JPanel nounPanel = new JPanel(new BorderLayout());
         //for inside noun panel
         nounPanel.setPreferredSize(new Dimension(400,50));
-        nounPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));             
+        nounPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
+        //nounPanel.setBackground(Color.GREEN);            
         
         //create &format nounLabel
         JLabel nounLabel = new JLabel("Nouns: ");
         nounLabel.setLayout(new BorderLayout());
+        nounLabel.setFont(new Font("titleFont", Font.BOLD, 14));        //**** */
                
         //create & format nounTextfield
         //JTextField nounTextField = new JTextField();
         JTextArea nounTextField= new JTextArea();
         //add noun string array into text field
         nounTextField.setText(Arrays.toString(nounVariables)); 
-        //nounTextField.setText(nounVariables);
+        nounTextField.setFont(new Font("titleFont", Font.PLAIN +Font.ITALIC, 14));    //*** */
        
         //add nounLabel and nounTextfield to nounPanel
         nounPanel.add(nounLabel, BorderLayout.EAST);
@@ -80,7 +83,7 @@ public class LevelsPanel extends JPanel{
         // Create Verb Panel
         JPanel verbPanel = new JPanel(new  BorderLayout());
         verbPanel.setPreferredSize(new Dimension(400,50));
-        verbPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
+        verbPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
         
         
         //create &format verbLabel
@@ -103,10 +106,10 @@ public class LevelsPanel extends JPanel{
         JPanel objectPanel = new JPanel(new BorderLayout());
         //for inside subject panel
         objectPanel.setPreferredSize(new Dimension(400,50));
-        objectPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));             
+        objectPanel.setLayout(new FlowLayout(FlowLayout.CENTER));             
         
         //create &format subjectLabel
-        JLabel objectLabel = new JLabel("Nouns: ");
+        JLabel objectLabel = new JLabel("Objects: ");
         objectLabel.setLayout(new BorderLayout());
                
         //create & format objectTextfield
