@@ -6,7 +6,7 @@ public class LevelsPanel extends JPanel{
     	JButton checkButton = new JButton("   Check your Sentence   ");
     	JButton exitButton = new JButton("        Exit Game        ");
         BoxLayout bLayout= new BoxLayout(this, BoxLayout.Y_AXIS);
-
+        
     LevelsPanel(){
     	int score=0;
     	String[] nounVariables = {"Cat", "Dog", "Toy", "Bear", "I", "You", "They", "We", "Bird", "Mouse"};
@@ -46,7 +46,10 @@ public class LevelsPanel extends JPanel{
         add(scoreTotalLabel);
       
         //create middlepanel, type JPanel
-        JPanel middlepanel = new JPanel(new GridLayout());
+        JPanel middlePanel = new JPanel(new BorderLayout());
+        JPanel innerMiddlePanel = new JPanel();
+        BoxLayout bLayout2= new BoxLayout(innerMiddlePanel, BoxLayout.Y_AXIS);
+        innerMiddlePanel.setLayout(bLayout2);
        
         
         
@@ -68,10 +71,10 @@ public class LevelsPanel extends JPanel{
         //nounTextField.setText(nounVariables);
        
         //add nounLabel and nounTextfield to nounPanel
-        add(nounLabel, BorderLayout.EAST);
-        add(nounTextField, BorderLayout.WEST);
+        nounPanel.add(nounLabel, BorderLayout.EAST);
+        nounPanel.add(nounTextField, BorderLayout.WEST);
               
-        
+        innerMiddlePanel.add(nounPanel);
         
         
         // Create Verb Panel
@@ -91,15 +94,16 @@ public class LevelsPanel extends JPanel{
         //verbTextField.setText(nounVariables);
        
         //add verbLabel and verbTextfield to verbPanel
-        add(verbLabel, BorderLayout.EAST);
-        add(verbTextField, BorderLayout.WEST);
+        verbPanel.add(verbLabel, BorderLayout.EAST);
+        verbPanel.add(verbTextField, BorderLayout.WEST);
         
+        innerMiddlePanel.add(verbPanel);
        
         //create object panel
         JPanel objectPanel = new JPanel(new BorderLayout());
         //for inside subject panel
-        nounPanel.setPreferredSize(new Dimension(400,50));
-        nounPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));             
+        objectPanel.setPreferredSize(new Dimension(400,50));
+        objectPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));             
         
         //create &format subjectLabel
         JLabel objectLabel = new JLabel("Nouns: ");
@@ -112,12 +116,16 @@ public class LevelsPanel extends JPanel{
         //subjectTextField.setText(objectVariables);
        
         //add objectLabel and objectTextfield to objectPanel
-        add(objectLabel, BorderLayout.EAST);
-        add(objectTextField, BorderLayout.WEST);
+        objectPanel.add(objectLabel, BorderLayout.EAST);
+        objectPanel.add(objectTextField, BorderLayout.WEST);
+
+        innerMiddlePanel.add(objectPanel);
             
        
         //middlepanel.add(verbPanel);
-        //add(subjectPanel, BorderLayout.EAST);
+        middlePanel.add(innerMiddlePanel);
+        middlePanel.add(createBlankPanel(40, 100),BorderLayout.EAST);
+        middlePanel.add(createBlankPanel(40, 100),BorderLayout.WEST);
 
         
         
@@ -138,7 +146,7 @@ public class LevelsPanel extends JPanel{
         //userInputTextField.setEditable(true);
         //userInputTextField.setFont(new Font(Font.SANS_SERIF, Font.ROMAN_BASELINE, 18));
         JTextArea userInputTextArea = new JTextArea(2,30);
-        userInputTextArea.setEditable(false);
+        userInputTextArea.setEditable(true);
         userInputTextArea.setText("Type your sentences here (using the above word bank)");
         userInputTextArea.setFont(new Font(Font.SANS_SERIF, Font.ROMAN_BASELINE+Font.ITALIC, 18));
 
@@ -171,7 +179,7 @@ public class LevelsPanel extends JPanel{
 
         //add everything to main panel
         //add(component); 
-
+        add(middlePanel);
         add(outerUserPanel); //contains instructions and inputTextField
         add(checkButton);
         add(createBlankPanel(300, 20));
