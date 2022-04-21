@@ -1,6 +1,6 @@
 import java.awt.*;
 import javax.swing.*;
-
+import java.util.Arrays;
 
 public class LevelsPanel extends JPanel{
     	JButton checkButton = new JButton("   Check your Sentence   ");
@@ -34,10 +34,10 @@ public class LevelsPanel extends JPanel{
         //create titleLabel JLabel w/set Horizontal alignment = jlabel.center
         JLabel titleLabel = new JLabel("Build a simple sentence ");
         titleLabel.setFont(new Font("titleFont", Font.BOLD, 32));
+        titleLabel.setAlignmentX(CENTER_ALIGNMENT);
 
         
-        //add scoreJLabel & scoretotalLabel to scoreJPanel
-        
+        //add scoreJLabel & scoretotalLabel to scoreJPanel        
         scorePanel.add(scoreLabel);       
         //scorePanel.add(scoreTotalLabel);
         //scorePanel.add(titleLabel);
@@ -45,7 +45,6 @@ public class LevelsPanel extends JPanel{
         add(titleLabel);
         add(scoreTotalLabel);
       
-        //line 3-5
         //create middlepanel, type JPanel
         JPanel middlepanel = new JPanel(new GridLayout());
        
@@ -55,8 +54,7 @@ public class LevelsPanel extends JPanel{
         JPanel nounPanel = new JPanel(new BorderLayout());
         //for inside noun panel
         nounPanel.setPreferredSize(new Dimension(400,50));
-        nounPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
-             
+        nounPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));             
         
         //create &format nounLabel
         JLabel nounLabel = new JLabel("Nouns: ");
@@ -65,32 +63,58 @@ public class LevelsPanel extends JPanel{
         //create & format nounTextfield
         //JTextField nounTextField = new JTextField();
         JTextArea nounTextField= new JTextArea();
+        //add noun string array into text field
+        nounTextField.setText(Arrays.toString(nounVariables)); 
         //nounTextField.setText(nounVariables);
        
         //add nounLabel and nounTextfield to nounPanel
         add(nounLabel, BorderLayout.EAST);
         add(nounTextField, BorderLayout.WEST);
+              
         
         
         
         // Create Verb Panel
-        JPanel verbPanel = new JPanel();
+        JPanel verbPanel = new JPanel(new  BorderLayout());
         verbPanel.setPreferredSize(new Dimension(400,50));
-        verbPanel.setLayout(new BorderLayout());
+        verbPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
         
-        // Format verbPanel
-        //verbPanel =   
         
-        // add Verb Panel
-        add(verbPanel);
+        //create &format verbLabel
+        JLabel verbLabel = new JLabel("Verbs: ");
+        verbLabel.setLayout(new BorderLayout());
+               
+        //create & format verbTextfield
+        //JTextField verbTextField = new JTextField();
+        JTextArea verbTextField= new JTextArea();
+        verbTextField.setText(Arrays.toString(verbVariables)); 
+        //verbTextField.setText(nounVariables);
+       
+        //add verbLabel and verbTextfield to verbPanel
+        add(verbLabel, BorderLayout.EAST);
+        add(verbTextField, BorderLayout.WEST);
         
-        // Create SubjectPanel
-        JPanel subjectPanel = new JPanel();
-        subjectPanel.setPreferredSize(new Dimension(400,50));
-        subjectPanel.setLayout(new BorderLayout());
+       
+        //create object panel
+        JPanel objectPanel = new JPanel(new BorderLayout());
+        //for inside subject panel
+        nounPanel.setPreferredSize(new Dimension(400,50));
+        nounPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));             
         
-        add(subjectPanel);
-        
+        //create &format subjectLabel
+        JLabel objectLabel = new JLabel("Nouns: ");
+        objectLabel.setLayout(new BorderLayout());
+               
+        //create & format objectTextfield
+        //JTextField objectTextField = new JTextField();
+        JTextArea objectTextField= new JTextArea();
+        objectTextField.setText(Arrays.toString(objectVariables)); 
+        //subjectTextField.setText(objectVariables);
+       
+        //add objectLabel and objectTextfield to objectPanel
+        add(objectLabel, BorderLayout.EAST);
+        add(objectTextField, BorderLayout.WEST);
+            
        
         //middlepanel.add(verbPanel);
         //add(subjectPanel, BorderLayout.EAST);
