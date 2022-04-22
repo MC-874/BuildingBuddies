@@ -14,7 +14,7 @@ public class LevelsPanel extends JPanel{
     	String[] verbVariables = {"ran", "ate", "went", "choose", "eats", "play"};
     	String[] objectVariables = {"far", "food", "home", "guitar", "outside", "school"};
         
-	//set panel format (BoxLayout)
+	    //set panel format (BoxLayout)
         setLayout(bLayout);
 
         
@@ -25,23 +25,23 @@ public class LevelsPanel extends JPanel{
         
         //Create & format score JLabel in scorePanel        
         JLabel scoreLabel = new JLabel("Score: "+score);
-        scoreLabel.setFont(new Font("titleFont", Font.BOLD, 20));
+        scoreLabel.setFont(new Font("subtitleFont", Font.BOLD, 20));
         
         
         //create format scoreTotal Label 
         JLabel scoreTotalLabel = new JLabel("Level: "+level);
-        scoreTotalLabel.setFont(new Font("titleFont", Font.BOLD, 20));
+        scoreTotalLabel.setFont(new Font("subtitleFont", Font.BOLD, 20));
         
         //create titleLabel JLabel w/set Horizontal alignment = jlabel.center
-        JLabel titleLabel = new JLabel("Build a simple sentence ");
+        JLabel titleLabel = new JLabel("Build A Simple Sentence ");
         titleLabel.setFont(new Font("titleFont", Font.BOLD, 32));
         titleLabel.setAlignmentX(CENTER_ALIGNMENT);
 
         
-        //add scoreJLabel & scoretotalLabel to scoreJPanel        
+        //add scoreJLabel to scoreJPanel        
         scorePanel.add(scoreLabel);       
-        //scorePanel.add(scoreTotalLabel);
-        //scorePanel.add(titleLabel);
+        scorePanel.add(createBlankPanel(20, 20));
+        
         add(scorePanel);
         add(titleLabel);
         add(scoreTotalLabel);
@@ -59,24 +59,32 @@ public class LevelsPanel extends JPanel{
         //for inside noun panel
         nounPanel.setPreferredSize(new Dimension(400,50));
         nounPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
+        nounPanel.setAlignmentY(CENTER_ALIGNMENT);
         //nounPanel.setBackground(Color.GREEN);            
         
         //create &format nounLabel
         JLabel nounLabel = new JLabel("Nouns: ");
         nounLabel.setLayout(new BorderLayout());
-        nounLabel.setFont(new Font("titleFont", Font.BOLD, 14));        //**** */
+        nounLabel.setFont(new Font("middleFont", Font.BOLD, 20));        //**** */
+        nounLabel.setVerticalAlignment(JLabel.CENTER);
+        //nounLabel.setHorizontalAlignment(JLabel.CENTER);
                
-        //create & format nounTextfield
-        //JTextField nounTextField = new JTextField();
-        JTextArea nounTextField= new JTextArea();
+        //create & format nounTextArea
+        //JTextField nounTextArea = new JTextField();
+        JTextArea nounTextArea= new JTextArea(2,5);
         //add noun string array into text field
-        nounTextField.setText(Arrays.toString(nounVariables)); 
-        nounTextField.setFont(new Font("titleFont", Font.PLAIN +Font.ITALIC, 14));    //*** */
+        nounTextArea.setText(Arrays.toString(nounVariables)); 
+        nounTextArea.setFont(new Font("subtMiddleFont", Font.PLAIN +Font.ITALIC, 20));    //*** */
+        nounTextArea.setPreferredSize(new Dimension(350,60));
+        nounTextArea.setLineWrap(true);
+        nounTextArea.setWrapStyleWord(true);
+        nounTextArea.setEditable(false);
        
-        //add nounLabel and nounTextfield to nounPanel
+        //add nounLabel and nounTextArea to nounPanel
         nounPanel.add(nounLabel, BorderLayout.EAST);
-        nounPanel.add(nounTextField, BorderLayout.WEST);
+        nounPanel.add(nounTextArea, BorderLayout.WEST);
               
+        innerMiddlePanel.add(createBlankPanel(30,20));
         innerMiddlePanel.add(nounPanel);
         
         
@@ -84,17 +92,24 @@ public class LevelsPanel extends JPanel{
         JPanel verbPanel = new JPanel(new  BorderLayout());
         verbPanel.setPreferredSize(new Dimension(400,50));
         verbPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
+        verbPanel.setAlignmentY(CENTER_ALIGNMENT);
         
         
         //create &format verbLabel
         JLabel verbLabel = new JLabel("Verbs: ");
         verbLabel.setLayout(new BorderLayout());
+        verbLabel.setFont(new Font("middleFont", Font.BOLD, 20));        //**** */
+        verbLabel.setVerticalAlignment(JLabel.CENTER);
                
         //create & format verbTextfield
         //JTextField verbTextField = new JTextField();
         JTextArea verbTextField= new JTextArea();
-        verbTextField.setText(Arrays.toString(verbVariables)); 
-        //verbTextField.setText(nounVariables);
+        verbTextField.setText(Arrays.toString(verbVariables));
+        verbTextField.setFont(new Font("subtMiddleFont", Font.PLAIN +Font.ITALIC, 20));    //*** */ 
+        verbTextField.setPreferredSize(new Dimension(350,60));
+        verbTextField.setLineWrap(true);
+        verbTextField.setWrapStyleWord(true);
+        verbTextField.setEditable(false);
        
         //add verbLabel and verbTextfield to verbPanel
         verbPanel.add(verbLabel, BorderLayout.EAST);
@@ -106,23 +121,32 @@ public class LevelsPanel extends JPanel{
         JPanel objectPanel = new JPanel(new BorderLayout());
         //for inside subject panel
         objectPanel.setPreferredSize(new Dimension(400,50));
-        objectPanel.setLayout(new FlowLayout(FlowLayout.CENTER));             
+        objectPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
+        objectPanel.setAlignmentY(CENTER_ALIGNMENT);             
         
         //create &format subjectLabel
         JLabel objectLabel = new JLabel("Objects: ");
         objectLabel.setLayout(new BorderLayout());
+        objectLabel.setFont(new Font("middleFont", Font.BOLD, 20));        //**** */
+        objectLabel.setVerticalAlignment(JLabel.CENTER);
                
         //create & format objectTextfield
         //JTextField objectTextField = new JTextField();
         JTextArea objectTextField= new JTextArea();
-        objectTextField.setText(Arrays.toString(objectVariables)); 
-        //subjectTextField.setText(objectVariables);
+        objectTextField.setText(Arrays.toString(objectVariables));
+        objectTextField.setFont(new Font("subtMiddleFont", Font.PLAIN +Font.ITALIC, 20));    //*** */
+        objectTextField.setPreferredSize(new Dimension(350,60));
+        objectTextField.setLineWrap(true);
+        objectTextField.setWrapStyleWord(true);
+        objectTextField.setEditable(false); 
+        
        
         //add objectLabel and objectTextfield to objectPanel
         objectPanel.add(objectLabel, BorderLayout.EAST);
         objectPanel.add(objectTextField, BorderLayout.WEST);
 
         innerMiddlePanel.add(objectPanel);
+        innerMiddlePanel.add(createBlankPanel(30,20));
             
        
         //middlepanel.add(verbPanel);
