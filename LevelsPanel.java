@@ -1,5 +1,7 @@
 import java.awt.*;
 import javax.swing.*;
+//import java.awt.*;
+import java.awt.event.*;
 import java.util.Arrays;
 
 public class LevelsPanel extends JPanel{
@@ -174,8 +176,17 @@ public class LevelsPanel extends JPanel{
         //userInputTextField.setFont(new Font(Font.SANS_SERIF, Font.ROMAN_BASELINE, 18));
         JTextArea userInputTextArea = new JTextArea(2,30);
         userInputTextArea.setEditable(true);
-        userInputTextArea.setText("Type your sentences here (using the above word bank)");
+        userInputTextArea.setText("Type your sentences here (using the above word banks)");
         userInputTextArea.setFont(new Font(Font.SANS_SERIF, Font.ROMAN_BASELINE+Font.ITALIC, 18));
+        userInputTextArea.addFocusListener(new FocusListener(){
+            public void focusGained(FocusEvent e) {
+                //method for when focus is gained; 
+                userInputTextArea.setText("");
+             } 
+            public void focusLost(FocusEvent e) { 
+                //method for when focus is lost; 
+            } 
+        });
 
         //add instructionLabel to userInputPanel JPanel
         userInputPanel.add(instructionLabel);
