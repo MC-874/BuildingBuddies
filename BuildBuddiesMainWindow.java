@@ -3,7 +3,11 @@ import java.awt.*;
 import java.awt.event.*;
 
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.InputStream;
+import org.antlr.v4.runtime.*;
+import org.antlr.v4.runtime.tree.*;
+
 
 
 public class BuildBuddiesMainWindow extends JFrame {
@@ -82,27 +86,53 @@ public class BuildBuddiesMainWindow extends JFrame {
 
         //determine if user supplied a file for input, or if we should instead read command line input
 
-        String inputFile = test;
-        InputStream is =inputFile;
+        //String inputFile = test;
+
+        /****writes a string into the file */
+        try{
+            FileOutputStream fOut = new FileOutputStream("test.txt");
+            byte b[] = test.getBytes();
+            fOut.write(b);
+            fOut.close();
+        }catch(Exception e){
+            System.out.println("System.out.println(e)");
+        }
+
+        /******gets input from file */
+        try{
+            FileInputStream fIN = new FileInputStream("test.txt");
+            ANTLRInputStream input = new ANTLRInputStream(fIn);
+
+            fIN.close();
+            
+        }catch(Exception e){
+            System.out.println("System.out.println(e)");
+        }
+
+        //InputStream is =inputFile;
         
         //if(args.length > 0) inputFile = args[0];
         
         //InputStream is = System.in;     //create the input stream?
 
         //if(inputFile != null) is = new FileInputStream(inputFile);
-        ANTLRInputStream input = new ANTLRInputStream(is);
+        
 
         
         //creates the input stream and inserts a text file
         //FileInputStream is = new FileInputStream("D:/Libraries/Documents/Spring 2022/CSEN 4366 Programing Languages/BuildingBuddies/test.txt")
-        FileInputStream is = new FileInputStream(test);
-        is.close(); //closes the input stream
+        //FileInputStream is = new FileInputStream(test);
+        //is.close(); //closes the input stream
         //create lexer, 
         SentenceGrammarLexer lexer = new SentenceGrammarLexer(input);
 
         //create token buffer, 
-        
+        CommonTokenStream tokens = new CommonTokenStream(lexer);
+
         //create parser
+        ExprParser parser = new ExprParser(tokens);
+        ParseTree tree = parser.program(); // parse; start at program rule
+        System.out.println(tree.toStringTree(parser)); // print tree in text form
 
     }
 
