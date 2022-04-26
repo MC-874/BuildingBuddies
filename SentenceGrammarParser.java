@@ -102,12 +102,9 @@ public class SentenceGrammarParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_sentences; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SentenceGrammarListener ) ((SentenceGrammarListener)listener).enterSentences(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SentenceGrammarListener ) ((SentenceGrammarListener)listener).exitSentences(this);
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SentenceGrammarVisitor ) return ((SentenceGrammarVisitor<? extends T>)visitor).visitSentences(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -162,12 +159,9 @@ public class SentenceGrammarParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_simpleSentence; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SentenceGrammarListener ) ((SentenceGrammarListener)listener).enterSimpleSentence(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SentenceGrammarListener ) ((SentenceGrammarListener)listener).exitSimpleSentence(this);
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SentenceGrammarVisitor ) return ((SentenceGrammarVisitor<? extends T>)visitor).visitSimpleSentence(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -230,12 +224,9 @@ public class SentenceGrammarParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_compoundSentence; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SentenceGrammarListener ) ((SentenceGrammarListener)listener).enterCompoundSentence(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SentenceGrammarListener ) ((SentenceGrammarListener)listener).exitCompoundSentence(this);
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SentenceGrammarVisitor ) return ((SentenceGrammarVisitor<? extends T>)visitor).visitCompoundSentence(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
