@@ -8,6 +8,8 @@ public class LevelsPanel extends JPanel{
     	JButton checkButton = new JButton("   Check your Sentence   ");
     	JButton exitButton = new JButton("        Exit Game        ");
         BoxLayout bLayout= new BoxLayout(this, BoxLayout.Y_AXIS);
+        JTextArea userInputTextArea = new JTextArea(2,30);
+
         
     LevelsPanel(){
     	int score=0;
@@ -174,7 +176,6 @@ public class LevelsPanel extends JPanel{
         //JTextField userInputTextField = new JTextField("Type your sentences here (using the above word bank)",20);
         //userInputTextField.setEditable(true);
         //userInputTextField.setFont(new Font(Font.SANS_SERIF, Font.ROMAN_BASELINE, 18));
-        JTextArea userInputTextArea = new JTextArea(2,30);
         userInputTextArea.setEditable(true);
         userInputTextArea.setText("Type your sentences here (using the above word banks)");
         userInputTextArea.setFont(new Font(Font.SANS_SERIF, Font.ROMAN_BASELINE+Font.ITALIC, 18));

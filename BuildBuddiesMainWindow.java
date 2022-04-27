@@ -4,7 +4,7 @@ import java.awt.event.*;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.InputStream;
+//import java.io.InputStream;
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.tree.*;
 
@@ -13,6 +13,7 @@ import org.antlr.v4.runtime.tree.*;
 public class BuildBuddiesMainWindow extends JFrame {
     static CardLayout cLayout;
     Container panelContainer =getContentPane();
+    String test2;
     //class variables
     
 
@@ -50,6 +51,7 @@ public class BuildBuddiesMainWindow extends JFrame {
                 //method for checkbutton
                 JOptionPane.showMessageDialog(null, "Computer comparing grammar file to user input.");
                 //method to check grammar
+                test2 = levelsPanel.userInputTextArea.getText();
                 try {
                     runGrammarCheck();
                 } catch (Exception e1) {
@@ -82,7 +84,7 @@ public class BuildBuddiesMainWindow extends JFrame {
 
     void runGrammarCheck() throws Exception{
         //get input
-        String test = "Cat ate food.";
+        String test = "Cat ate food";
 
         //determine if user supplied a file for input, or if we should instead read command line input
 
@@ -91,7 +93,7 @@ public class BuildBuddiesMainWindow extends JFrame {
         /****writes a string into the file */
         try{
             FileOutputStream fOut = new FileOutputStream("test.txt");
-            byte b[] = test.getBytes();
+            byte b[] = test2.getBytes();
             fOut.write(b);
             fOut.close();
         }catch(Exception e){
@@ -99,16 +101,18 @@ public class BuildBuddiesMainWindow extends JFrame {
         }
 
         /******gets input from file */
-        try{
             FileInputStream fIN = new FileInputStream("test.txt");
-            ANTLRInputStream input = new ANTLRInputStream(fIn);
+            //ANTLRInputStream input = new ANTLRInputStream(fIN);
+            CharStream input = CharStreams.fromStream(fIN);
 
-            fIN.close();
+        //try{
             
-        }catch(Exception e){
-            System.out.println("System.out.println(e)");
-        }
 
+            
+            
+        /*}catch(Exception e){
+            System.out.println("System.out.println(e)");
+        }*/
         //InputStream is =inputFile;
         
         //if(args.length > 0) inputFile = args[0];
@@ -130,9 +134,11 @@ public class BuildBuddiesMainWindow extends JFrame {
         CommonTokenStream tokens = new CommonTokenStream(lexer);
 
         //create parser
-        ExprParser parser = new ExprParser(tokens);
-        ParseTree tree = parser.program(); // parse; start at program rule
+        SentenceGrammarParser parser = new SentenceGrammarParser(tokens);
+        
+        ParseTree tree = parser.sentences(); // parse; start at program rule
         System.out.println(tree.toStringTree(parser)); // print tree in text form
+        fIN.close();
 
     }
 
