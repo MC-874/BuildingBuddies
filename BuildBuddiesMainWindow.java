@@ -84,11 +84,8 @@ public class BuildBuddiesMainWindow extends JFrame {
 
     void runGrammarCheck() throws Exception{
         //get input
-        String test = "Cat ate food";
+        //String test = "Cat ate food";
 
-        //determine if user supplied a file for input, or if we should instead read command line input
-
-        //String inputFile = test;
 
         /****writes a string into the file */
         try{
@@ -105,28 +102,10 @@ public class BuildBuddiesMainWindow extends JFrame {
             //ANTLRInputStream input = new ANTLRInputStream(fIN);
             CharStream input = CharStreams.fromStream(fIN);
 
-        //try{
-            
-
-            
-            
-        /*}catch(Exception e){
-            System.out.println("System.out.println(e)");
-        }*/
-        //InputStream is =inputFile;
         
-        //if(args.length > 0) inputFile = args[0];
-        
-        //InputStream is = System.in;     //create the input stream?
-
         //if(inputFile != null) is = new FileInputStream(inputFile);
-        
 
         
-        //creates the input stream and inserts a text file
-        //FileInputStream is = new FileInputStream("D:/Libraries/Documents/Spring 2022/CSEN 4366 Programing Languages/BuildingBuddies/test.txt")
-        //FileInputStream is = new FileInputStream(test);
-        //is.close(); //closes the input stream
         //create lexer, 
         SentenceGrammarLexer lexer = new SentenceGrammarLexer(input);
 
@@ -136,9 +115,19 @@ public class BuildBuddiesMainWindow extends JFrame {
         //create parser
         SentenceGrammarParser parser = new SentenceGrammarParser(tokens);
         
-        ParseTree tree = parser.sentences(); // parse; start at program rule
-        System.out.println(tree.toStringTree(parser)); // print tree in text form
-        fIN.close();
+        ParseTree tree = parser.sentences(); // parse; start reading at sentence rule
+        
+        //alternative1
+        SentenceGrammarBaseListener listener= new SentenceGrammarBaseListener();
+        ParseTreeWalker walker = new ParseTreeWalker();
+        walker.walk(listener,tree);
+
+        //alternative2
+        //SentenceGrammarVisitor eval = new SentenceGrammarVisitor();
+        //eval.visit(tree);
+
+        //System.out.println(tree.toStringTree(parser)); // print tree in text form
+        fIN.close();        //closese the input stream
 
     }
 
