@@ -2,7 +2,8 @@ grammar SentenceGrammar;
 
 // Parser Rules
 sentences : simpleSentence PUNCTUATION                      # simSent
-            | compoundSentence PUNCTUATION;			            # comSent
+            | compoundSentence PUNCTUATION	            # comSent
+            ;	
 simpleSentence : ARTICLE? SUBJECT VERB ARTICLE? OBJECT;					
 compoundSentence : simpleSentence CONJUNCTION simpleSentence;				
 
