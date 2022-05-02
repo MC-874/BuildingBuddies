@@ -1,9 +1,10 @@
 grammar SentenceGrammar;
 
 // Parser Rules
-sentences : simpleSentence PUNCTUATION | compoundSentence PUNCTUATION;			# senType
-simpleSentence : ARTICLE? SUBJECT VERB ARTICLE? OBJECT;					# simSent
-compoundSentence : simpleSentence CONJUNCTION simpleSentence;				# comSent
+sentences : simpleSentence PUNCTUATION                      # simSent
+            | compoundSentence PUNCTUATION;			            # comSent
+simpleSentence : ARTICLE? SUBJECT VERB ARTICLE? OBJECT;					
+compoundSentence : simpleSentence CONJUNCTION simpleSentence;				
 
 
 // Lexer Rules
