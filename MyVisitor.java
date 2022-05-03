@@ -1,4 +1,3 @@
-//import java.util.Arrays;
 
 import javax.swing.JOptionPane;
 
@@ -16,7 +15,6 @@ public class MyVisitor extends SentenceGrammarBaseVisitor<Object>{
 
     @Override
     public Object visitSimpleSentence(SentenceGrammarParser.SimpleSentenceContext ctx) {
-        //  Auto-generated method stub
 
         String temp= LevelsPanel.userInputTextArea.getText();
         
