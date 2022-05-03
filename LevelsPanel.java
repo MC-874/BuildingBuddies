@@ -242,7 +242,9 @@ public class LevelsPanel extends JPanel{
     }
 
     void increaseLevels(){
-        level=level+1;
         score+=score;
+        if (score % 5==0){
+            level=level+1;
+        }
     }
 }
