@@ -50,8 +50,7 @@ public class BuildBuddiesMainWindow extends JFrame {
         //levelsPanels's button actionLister
         levelsPanel.checkButton.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                //method for checkbutton
-                //JOptionPane.showMessageDialog(null, "Computer comparing grammar file to user input.");
+                //method for checkbutton         
                 //method to check grammar
                 test2 = LevelsPanel.userInputTextArea.getText();
                 try {
