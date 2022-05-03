@@ -40,7 +40,7 @@ public class MyVisitor extends SentenceGrammarBaseVisitor<Object>{
         }
         if(hasNoun && hasVerb && hasObject){
             BuildBuddiesMainWindow.simpleSentece=true;
-
+        }
         
         
         return super.visitSimpleSentence(ctx);
