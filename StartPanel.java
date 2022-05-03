@@ -33,13 +33,15 @@ public class StartPanel extends JPanel {
         //format buttons
         Font buttonFont = new Font(Font.SANS_SERIF, Font.ITALIC, 26);
         startButton.setFont(buttonFont);
-        startButton.setBackground(Color.GREEN);
+        startButton.setForeground(Color.GREEN);
+        startButton.setBackground(Color.BLACK);
         startButton.setAlignmentY(Component.CENTER_ALIGNMENT);
         startButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         startButton.setMinimumSize(new Dimension(300,75));
 
         exitButton.setFont(buttonFont);
-        exitButton.setBackground(Color.red);
+        exitButton.setForeground(Color.red);
+        exitButton.setBackground(Color.black);
         exitButton.setAlignmentY(Component.CENTER_ALIGNMENT);
         exitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         exitButton.setMinimumSize(new Dimension(300,75));

@@ -9,11 +9,13 @@ public class LevelsPanel extends JPanel{
     	JButton exitButton = new JButton("        Exit Game        ");
         BoxLayout bLayout= new BoxLayout(this, BoxLayout.Y_AXIS);
         JTextArea userInputTextArea = new JTextArea(2,30);
+        int score;
+        int level;
 
         
     LevelsPanel(){
-    	int score=0;
-        int level=1;
+    	score=0;
+        level=1;
     	String[] nounVariables = {"Cat", "Dog", "Toy", "Bear", "I", "You", "They", "We", "Bird", "Mouse"};
     	String[] verbVariables = {"ran", "ate", "went", "choose", "eats", "play"};
     	String[] objectVariables = {"far", "food", "home", "guitar", "outside", "school"};
@@ -237,5 +239,10 @@ public class LevelsPanel extends JPanel{
         blankPanel.setPreferredSize(new Dimension(x, y));
         //blankPanel.setBackground(Color.BLACK);
         return blankPanel;
+    }
+
+    void increaseLevels(){
+        level=level+1;
+        score+=score;
     }
 }

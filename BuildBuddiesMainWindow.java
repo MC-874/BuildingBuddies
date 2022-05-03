@@ -11,10 +11,12 @@ import org.antlr.v4.runtime.tree.*;
 
 
 public class BuildBuddiesMainWindow extends JFrame {
+    //class variables
     static CardLayout cLayout;
     Container panelContainer =getContentPane();
     String test2;
-    //class variables
+    Boolean simpleSentece=false;
+    
     
 
     BuildBuddiesMainWindow(){
@@ -49,7 +51,7 @@ public class BuildBuddiesMainWindow extends JFrame {
         levelsPanel.checkButton.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 //method for checkbutton
-                JOptionPane.showMessageDialog(null, "Computer comparing grammar file to user input.");
+                //JOptionPane.showMessageDialog(null, "Computer comparing grammar file to user input.");
                 //method to check grammar
                 test2 = levelsPanel.userInputTextArea.getText();
                 try {
@@ -57,6 +59,12 @@ public class BuildBuddiesMainWindow extends JFrame {
                 } catch (Exception e1) {
                     // Auto-generated catch block
                     e1.printStackTrace();
+                }
+                if (simpleSentece==true){
+                    JOptionPane.showMessageDialog(null, "Great Job!  You have successfully Built a Sentence!");
+                    levelsPanel.increaseLevels();
+                }else if(simpleSentece==false){
+                    JOptionPane.showMessageDialog(null, "Not a Sentence.  Please try again!");
                 }
             }
         });
@@ -115,7 +123,7 @@ public class BuildBuddiesMainWindow extends JFrame {
         //create parser
         SentenceGrammarParser parser = new SentenceGrammarParser(tokens);
         
-        ParseTree tree = parser.sentences(); // parse; start reading at sentence rule
+        ParseTree tree = parser.simpleSentence(); // parse; start reading at sentence rule
         
         //alternative1
         SentenceGrammarBaseListener listener= new SentenceGrammarBaseListener();
@@ -126,7 +134,9 @@ public class BuildBuddiesMainWindow extends JFrame {
         //SentenceGrammarVisitor eval = new SentenceGrammarVisitor();
         //eval.visit(tree);
 
+        //alternative3
         //System.out.println(tree.toStringTree(parser)); // print tree in text form
+        JOptionPane.showMessageDialog(null, tree.toStringTree(parser));
         fIN.close();        //closese the input stream
 
     }
