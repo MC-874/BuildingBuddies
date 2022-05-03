@@ -47,9 +47,9 @@ public class MyVisitor extends SentenceGrammarBaseVisitor<Object>{
     }
 
     public static void resetValues() {
-    hasNoun=false;
-    hasVerb=false;
-    hasObject=false;
-    BuildBuddiesMainWindow.simpleSentece=false;
+        hasNoun=false;
+        hasVerb=false;
+        hasObject=false;
+        BuildBuddiesMainWindow.simpleSentece=false;
     }
 }
