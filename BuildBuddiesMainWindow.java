@@ -66,6 +66,8 @@ public class BuildBuddiesMainWindow extends JFrame {
                 }else if(simpleSentece==false){
                     JOptionPane.showMessageDialog(null, "Not a Sentence.  Please try again!");
                 }
+
+                MyVisitor.resetValues();
             }
         });
 
@@ -141,7 +143,7 @@ public class BuildBuddiesMainWindow extends JFrame {
 
         //alternative3
         //System.out.println(tree.toStringTree(parser)); // print tree in text form
-        JOptionPane.showMessageDialog(null, tree.toStringTree(parser));
+        JOptionPane.showMessageDialog(null, tree.toStringTree(parser),"Parse Tree: ", JOptionPane.INFORMATION_MESSAGE);
         fIN.close();        //closese the input stream
 
     }

@@ -1,11 +1,11 @@
-import java.util.Arrays;
+//import java.util.Arrays;
 
 import javax.swing.JOptionPane;
 
 public class MyVisitor extends SentenceGrammarBaseVisitor<Object>{
-    boolean hasNoun=false;
-    boolean hasVerb=false;
-    boolean hasObject=false;
+    static boolean hasNoun=false;
+    static boolean hasVerb=false;
+    static boolean hasObject=false;
     
     @Override
     public Object visitSentences(SentenceGrammarParser.SentencesContext ctx) {
@@ -39,7 +39,7 @@ public class MyVisitor extends SentenceGrammarBaseVisitor<Object>{
                 if(temp.contains(LevelsPanel.objectVariables[i])){
                     //JOptionPane.showMessageDialog(null, "noun variable are "+LevelsPanel.nounVariables[i]);
                     hasObject=true;
-                    //JOptionPane.showMessageDialog(null, "noun is "+hasNoun);
+                    //JOptionPane.showMessageDialog(null, "object is "+hasObject);
                     break;
                 }
         }
@@ -49,7 +49,7 @@ public class MyVisitor extends SentenceGrammarBaseVisitor<Object>{
                 if(temp.contains(LevelsPanel.verbVariables[i])){
                     //JOptionPane.showMessageDialog(null, "noun variable are "+LevelsPanel.nounVariables[i]);
                     hasVerb=true;
-                    //JOptionPane.showMessageDialog(null, "noun is "+hasNoun);
+                    //JOptionPane.showMessageDialog(null, "verb is "+hasVerb);
                     break;
                 }
         }
@@ -66,13 +66,20 @@ public class MyVisitor extends SentenceGrammarBaseVisitor<Object>{
         }*/
         if(hasNoun && hasVerb && hasObject){
             BuildBuddiesMainWindow.simpleSentece=true;
-            JOptionPane.showMessageDialog(null, "SimpleSentence "+BuildBuddiesMainWindow.simpleSentece);
+            //JOptionPane.showMessageDialog(null, "SimpleSentence "+BuildBuddiesMainWindow.simpleSentece);
 
         }else{
-            JOptionPane.showMessageDialog(null, "SimpleSentence "+BuildBuddiesMainWindow.simpleSentece);
+            //JOptionPane.showMessageDialog(null, "SimpleSentence "+BuildBuddiesMainWindow.simpleSentece);
         }
         
         
         return super.visitSimpleSentence(ctx);
+    }
+
+    public static void resetValues() {
+    hasNoun=false;
+    hasVerb=false;
+    hasObject=false;
+    BuildBuddiesMainWindow.simpleSentece=false;
     }
 }
