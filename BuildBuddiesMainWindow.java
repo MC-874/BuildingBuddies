@@ -60,10 +60,10 @@ public class BuildBuddiesMainWindow extends JFrame {
                     // Auto-generated catch block
                     e1.printStackTrace();
                 }
-                if (simpleSentece==true){
+                if (simpleSentece==false){
                     JOptionPane.showMessageDialog(null, "Great Job!  You have successfully Built a Sentence!");
                     levelsPanel.increaseLevels();
-                }else if(simpleSentece==false){
+                }else if(simpleSentece==true){
                     JOptionPane.showMessageDialog(null, "Not a Sentence.  Please try again!");
                 }
             }

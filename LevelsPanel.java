@@ -9,6 +9,8 @@ public class LevelsPanel extends JPanel{
     	JButton exitButton = new JButton("        Exit Game        ");
         BoxLayout bLayout= new BoxLayout(this, BoxLayout.Y_AXIS);
         JTextArea userInputTextArea = new JTextArea(2,30);
+        JLabel scoreLabel;
+        JLabel scoreTotalLabel;
         int score;
         int level;
 
@@ -30,12 +32,12 @@ public class LevelsPanel extends JPanel{
         scorePanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
         
         //Create & format score JLabel in scorePanel        
-        JLabel scoreLabel = new JLabel("Score: "+score);
+        scoreLabel = new JLabel("Score: "+score);
         scoreLabel.setFont(new Font("subtitleFont", Font.BOLD, 20));
         
         
         //create format scoreTotal Label 
-        JLabel scoreTotalLabel = new JLabel("Level: "+level);
+        scoreTotalLabel = new JLabel("Level: "+level);
         scoreTotalLabel.setFont(new Font("subtitleFont", Font.BOLD, 20));
         
         //create titleLabel JLabel w/set Horizontal alignment = jlabel.center
@@ -242,9 +244,12 @@ public class LevelsPanel extends JPanel{
     }
 
     void increaseLevels(){
-        score+=score;
+        score+=1;
+        scoreLabel.setText("Score: "+score);
         if (score % 5==0){
             level=level+1;
+            scoreTotalLabel.setText("Level: "+level);
+            JOptionPane.showMessageDialog(null, "Great Job!  You have successfully made it to Level "+level+"!");
         }
     }
 }
