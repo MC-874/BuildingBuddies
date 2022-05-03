@@ -8,7 +8,10 @@ public class LevelsPanel extends JPanel{
     	JButton checkButton = new JButton("   Check your Sentence   ");
     	JButton exitButton = new JButton("        Exit Game        ");
         BoxLayout bLayout= new BoxLayout(this, BoxLayout.Y_AXIS);
-        JTextArea userInputTextArea = new JTextArea(2,30);
+        static JTextArea userInputTextArea = new JTextArea(2,30);
+        static String[] nounVariables = {"Cat", "Dog", "Toy", "Bear", "I", "You", "They", "We", "Bird", "Mouse"};
+    	static String[] verbVariables = {"ran", "ate", "went", "choose", "eats", "play"};
+    	static String[] objectVariables = {"far", "food", "home", "guitar", "outside", "school"};
         JLabel scoreLabel;
         JLabel scoreTotalLabel;
         int score;
@@ -18,9 +21,7 @@ public class LevelsPanel extends JPanel{
     LevelsPanel(){
     	score=0;
         level=1;
-    	String[] nounVariables = {"Cat", "Dog", "Toy", "Bear", "I", "You", "They", "We", "Bird", "Mouse"};
-    	String[] verbVariables = {"ran", "ate", "went", "choose", "eats", "play"};
-    	String[] objectVariables = {"far", "food", "home", "guitar", "outside", "school"};
+
         
 	    //set panel format (BoxLayout)
         setLayout(bLayout);

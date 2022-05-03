@@ -15,7 +15,7 @@ public class BuildBuddiesMainWindow extends JFrame {
     static CardLayout cLayout;
     Container panelContainer =getContentPane();
     String test2;
-    Boolean simpleSentece=false;
+    static Boolean simpleSentece=false;
     
     
 
@@ -53,17 +53,17 @@ public class BuildBuddiesMainWindow extends JFrame {
                 //method for checkbutton
                 //JOptionPane.showMessageDialog(null, "Computer comparing grammar file to user input.");
                 //method to check grammar
-                test2 = levelsPanel.userInputTextArea.getText();
+                test2 = LevelsPanel.userInputTextArea.getText();
                 try {
                     runGrammarCheck();
                 } catch (Exception e1) {
                     // Auto-generated catch block
                     e1.printStackTrace();
                 }
-                if (simpleSentece==false){
+                if (simpleSentece==true){
                     JOptionPane.showMessageDialog(null, "Great Job!  You have successfully Built a Sentence!");
                     levelsPanel.increaseLevels();
-                }else if(simpleSentece==true){
+                }else if(simpleSentece==false){
                     JOptionPane.showMessageDialog(null, "Not a Sentence.  Please try again!");
                 }
             }
@@ -126,13 +126,18 @@ public class BuildBuddiesMainWindow extends JFrame {
         ParseTree tree = parser.simpleSentence(); // parse; start reading at sentence rule
         
         //alternative1
-        SentenceGrammarBaseListener listener= new SentenceGrammarBaseListener();
-        ParseTreeWalker walker = new ParseTreeWalker();
-        walker.walk(listener,tree);
+        MyListener listener= new MyListener();
+        //ParseTreeWalker walker = new ParseTreeWalker();
+        //walker.walk(listener,tree);         //show exiting and entering the rule
+
+        //alternative1.2
+        //MyListener listener= new MyListener();
+        //parser.addParseListener(listener);
+        //parser.sentences().exitRule(listener);
 
         //alternative2
-        //SentenceGrammarVisitor eval = new SentenceGrammarVisitor();
-        //eval.visit(tree);
+        MyVisitor eval = new MyVisitor();
+        eval.visit(tree);
 
         //alternative3
         //System.out.println(tree.toStringTree(parser)); // print tree in text form
