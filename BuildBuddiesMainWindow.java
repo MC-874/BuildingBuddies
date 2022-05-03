@@ -1,10 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-//import java.io.InputStream;
+
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.tree.*;
 
@@ -83,7 +82,7 @@ public class BuildBuddiesMainWindow extends JFrame {
         //add to the frame
         panelContainer.add(startPanel, "1"); //need -?? 'panelContainer'??
         panelContainer.add(levelsPanel, "2");
-        //panelContainer.add(cardPanel3, "3");
+
 
         //set card1 to visable &fram to visable
         cLayout.show(panelContainer, "1"); //show card1 when new instance is created
@@ -91,10 +90,9 @@ public class BuildBuddiesMainWindow extends JFrame {
         setVisible(true);
     }
 
-    void runGrammarCheck() throws Exception{
+        void runGrammarCheck() throws Exception{
         //get input
         //String test = "Cat ate food";
-
 
         /****writes a string into the file */
         try{
@@ -107,12 +105,11 @@ public class BuildBuddiesMainWindow extends JFrame {
         }
 
         /******gets input from file */
-            FileInputStream fIN = new FileInputStream("test.txt");
-            //ANTLRInputStream input = new ANTLRInputStream(fIN);
-            CharStream input = CharStreams.fromStream(fIN);
+        FileInputStream fIN = new FileInputStream("test.txt");
+        //ANTLRInputStream input = new ANTLRInputStream(fIN);
+        CharStream input = CharStreams.fromStream(fIN);
 
-        
-        //if(inputFile != null) is = new FileInputStream(inputFile);
+    
 
         
         //create lexer, 
@@ -127,7 +124,7 @@ public class BuildBuddiesMainWindow extends JFrame {
         ParseTree tree = parser.simpleSentence(); // parse; start reading at sentence rule
         
         //alternative1
-        MyListener listener= new MyListener();
+        //MyListener listener= new MyListener();
         //ParseTreeWalker walker = new ParseTreeWalker();
         //walker.walk(listener,tree);         //show exiting and entering the rule
 

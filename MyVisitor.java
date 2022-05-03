@@ -38,10 +38,10 @@ public class MyVisitor extends SentenceGrammarBaseVisitor<Object>{
                     break;
                 }
         }
+
         if(hasNoun && hasVerb && hasObject){
             BuildBuddiesMainWindow.simpleSentece=true;
         }
-        
         
         return super.visitSimpleSentence(ctx);
     }
