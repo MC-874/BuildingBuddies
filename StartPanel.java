@@ -8,15 +8,11 @@ public class StartPanel extends JPanel {
     BoxLayout bLayout=new BoxLayout(this, BoxLayout.Y_AXIS);
 
     StartPanel(){
-        //create start panel
-        setLayout(bLayout);  //format card panel
+        setLayout(bLayout);  //format Start card panel
 
-        //create and format title label
+        //create and format title Panel
         JPanel titlePanel = new JPanel(new BorderLayout());
-        //BoxLayout titleLayout =new BoxLayout(titlePanel, BoxLayout.Y_AXIS);
-        //titlePanel.setLayout(titleLayout);
-
-        JLabel titleLabel1 = new JLabel("Welcome to ");
+        JLabel titleLabel1 = new JLabel("Welcome to ");                 //create labels for title panel
         titleLabel1.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 36));
         titleLabel1.setForeground(Color.BLUE);
         titleLabel1.setHorizontalAlignment(JLabel.CENTER);
@@ -28,7 +24,6 @@ public class StartPanel extends JPanel {
         titlePanel.add(titleLabel2, BorderLayout.SOUTH);
         titlePanel.setPreferredSize(new Dimension(500,150));
         titlePanel.setMaximumSize(new Dimension(500,150));
-        //titlePanel.setBackground(Color.CYAN);
 
         //format buttons
         Font buttonFont = new Font(Font.SANS_SERIF, Font.ITALIC, 26);
@@ -45,7 +40,6 @@ public class StartPanel extends JPanel {
         exitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         exitButton.setMinimumSize(new Dimension(300,75));
 
-
         //adding components to startPanel
         add(createBlankPanel(300, 75));
         add(titlePanel);
@@ -54,11 +48,9 @@ public class StartPanel extends JPanel {
         add(createBlankPanel(300, 50));
         add(exitButton);
         add(createBlankPanel(300, 150));
-        
+    } //end of StartPanel constructor
 
-    }
-
-    JPanel createBlankPanel(int x, int y){
+    JPanel createBlankPanel(int x, int y){      //method to create Blank Panels for filler
         JPanel blankPanel = new JPanel();
         //blankPanel.setSize(x,y);
         blankPanel.setMaximumSize(new Dimension(x, y));

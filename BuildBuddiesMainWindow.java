@@ -19,18 +19,16 @@ public class BuildBuddiesMainWindow extends JFrame {
     
 
     BuildBuddiesMainWindow(){
+        //build frame and adds components
         setTitle("Building Buddies");
         cLayout= new CardLayout();
         setLayout(cLayout);
         setSize(600,700);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-       
 
-        //build frame and adds components
-
+        //create cardPanels and their action listeners and adds to CardLayout
         StartPanel startPanel = new StartPanel();
-        //startPanel's button actionLister
-        startPanel.startButton.addActionListener(new ActionListener(){
+        startPanel.startButton.addActionListener(new ActionListener(){  //startPanel's button actionLister
             public void actionPerformed(ActionEvent e){
                 //method for startbutton, goes to next 
                 cLayout.next(panelContainer);
@@ -46,55 +44,46 @@ public class BuildBuddiesMainWindow extends JFrame {
         });
 
         LevelsPanel levelsPanel = new LevelsPanel();
-        //levelsPanels's button actionLister
-        levelsPanel.checkButton.addActionListener(new ActionListener(){
+        levelsPanel.checkButton.addActionListener(new ActionListener(){        //levelsPanels's button actionLister
             public void actionPerformed(ActionEvent e){
-                //method for checkbutton         
-                //method to check grammar
-                test2 = LevelsPanel.userInputTextArea.getText();
-                try {
-                    runGrammarCheck();
+                //method for checkbutton to check grammar and return outcome to user        
+                test2 = LevelsPanel.userInputTextArea.getText();    //gets user input
+                try {         
+                    runGrammarCheck();                        //runs grammar check
                 } catch (Exception e1) {
-                    // Auto-generated catch block
                     e1.printStackTrace();
                 }
-                if (simpleSentece==true){
+                if (simpleSentece==true){                   //returns results of grammar to user
                     JOptionPane.showMessageDialog(null, "Great Job!  You have successfully Built a Sentence!");
                     levelsPanel.increaseLevels();
                 }else if(simpleSentece==false){
                     JOptionPane.showMessageDialog(null, "Not a Sentence.  Please try again!");
                 }
-
-                MyVisitor.resetValues();
+                MyVisitor.resetValues();    //resets values for next input for user
             }
         });
 
         levelsPanel.exitButton.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                //method for exitButton
+                //method for exitButton, dipose frame & exits system
                 dispose();
                 System.exit(0);
             }
         });
         
-
-
-        //add to the frame
+        //add panels to the frame's panel container
         panelContainer.add(startPanel, "1"); //need -?? 'panelContainer'??
         panelContainer.add(levelsPanel, "2");
 
-
-        //set card1 to visable &fram to visable
+        //set card1 to visable & frame to visable
         cLayout.show(panelContainer, "1"); //show card1 when new instance is created
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
-    }
+    }//end of constructor
 
         void runGrammarCheck() throws Exception{
-        //get input
-        //String test = "Cat ate food";
 
-        /****writes a string into the file */
+        /**** usese input to write a string into the test.txt file */
         try{
             FileOutputStream fOut = new FileOutputStream("test.txt");
             byte b[] = test2.getBytes();
@@ -104,21 +93,17 @@ public class BuildBuddiesMainWindow extends JFrame {
             System.out.println("System.out.println(e)");
         }
 
-        /******gets input from file */
+        /******gets input from file  and inserts it into antler pipline**/
         FileInputStream fIN = new FileInputStream("test.txt");
-        //ANTLRInputStream input = new ANTLRInputStream(fIN);
         CharStream input = CharStreams.fromStream(fIN);
 
-    
-
-        
-        //create lexer, 
+        //create lexer,  from input stream
         SentenceGrammarLexer lexer = new SentenceGrammarLexer(input);
 
-        //create token buffer, 
+        //create token buffer,  from lexer
         CommonTokenStream tokens = new CommonTokenStream(lexer);
 
-        //create parser
+        //create parser, from tokenStream
         SentenceGrammarParser parser = new SentenceGrammarParser(tokens);
         
         ParseTree tree = parser.simpleSentence(); // parse; start reading at sentence rule

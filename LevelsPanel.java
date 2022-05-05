@@ -1,6 +1,5 @@
 import java.awt.*;
 import javax.swing.*;
-//import java.awt.*;
 import java.awt.event.*;
 import java.util.Arrays;
 
@@ -21,15 +20,12 @@ public class LevelsPanel extends JPanel{
     LevelsPanel(){
     	score=0;
         level=1;
-
         
 	    //set panel format (BoxLayout)
         setLayout(bLayout);
 
-        
         //Create & format score JPanel
         JPanel scorePanel = new JPanel();
-        //scorePanel.setLayout(new BoxLayout(scorePanel , BoxLayout.Y_AXIS));
         scorePanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
         
         //Create & format score JLabel in scorePanel        
@@ -41,19 +37,15 @@ public class LevelsPanel extends JPanel{
         scoreTotalLabel = new JLabel("Level: "+level);
         scoreTotalLabel.setFont(new Font("subtitleFont", Font.BOLD, 20));
         
-        //create titleLabel JLabel w/set Horizontal alignment = jlabel.center
+        //create titleLabel JLabel w/set Horizontal alignment 
         JLabel titleLabel = new JLabel("Build A Simple Sentence ");
         titleLabel.setFont(new Font("titleFont", Font.BOLD, 32));
         titleLabel.setAlignmentX(CENTER_ALIGNMENT);
 
-        
         //add scoreJLabel to scoreJPanel        
         scorePanel.add(scoreLabel);       
         scorePanel.add(createBlankPanel(20, 20));
-        
-        add(scorePanel);
-        add(titleLabel);
-        add(scoreTotalLabel);
+
       
         //create middlepanel, type JPanel
         JPanel middlePanel = new JPanel(new BorderLayout());
@@ -65,21 +57,19 @@ public class LevelsPanel extends JPanel{
         
         //create & format nounPanel
         JPanel nounPanel = new JPanel(new BorderLayout());
-        //for inside noun panel
+        //format inside noun panel
         nounPanel.setPreferredSize(new Dimension(400,50));
         nounPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
         nounPanel.setAlignmentY(CENTER_ALIGNMENT);
-        //nounPanel.setBackground(Color.GREEN);            
+            
         
         //create &format nounLabel
         JLabel nounLabel = new JLabel("Nouns: ");
         nounLabel.setLayout(new BorderLayout());
         nounLabel.setFont(new Font("middleFont", Font.BOLD, 20));        //**** */
         nounLabel.setVerticalAlignment(JLabel.CENTER);
-        //nounLabel.setHorizontalAlignment(JLabel.CENTER);
                
         //create & format nounTextArea
-        //JTextField nounTextArea = new JTextField();
         JTextArea nounTextArea= new JTextArea(2,5);
         //add noun string array into text field
         nounTextArea.setText(Arrays.toString(nounVariables)); 
@@ -140,7 +130,7 @@ public class LevelsPanel extends JPanel{
         objectLabel.setVerticalAlignment(JLabel.CENTER);
                
         //create & format objectTextfield
-        //JTextField objectTextField = new JTextField();
+    
         JTextArea objectTextField= new JTextArea();
         objectTextField.setText(Arrays.toString(objectVariables));
         objectTextField.setFont(new Font("subtMiddleFont", Font.PLAIN +Font.ITALIC, 20));    //*** */
@@ -148,18 +138,15 @@ public class LevelsPanel extends JPanel{
         objectTextField.setLineWrap(true);
         objectTextField.setWrapStyleWord(true);
         objectTextField.setEditable(false); 
-        
        
         //add objectLabel and objectTextfield to objectPanel
         objectPanel.add(objectLabel, BorderLayout.EAST);
         objectPanel.add(objectTextField, BorderLayout.WEST);
 
-        innerMiddlePanel.add(objectPanel);
+        innerMiddlePanel.add(objectPanel);                  //add objectPanel to innerMiddlePanel
         innerMiddlePanel.add(createBlankPanel(30,20));
-            
-       
-        //middlepanel.add(verbPanel);
-        middlePanel.add(innerMiddlePanel);
+        
+        middlePanel.add(innerMiddlePanel);                  //add innerMiddlePanel and space to middlePanel
         middlePanel.add(createBlankPanel(40, 100),BorderLayout.EAST);
         middlePanel.add(createBlankPanel(40, 100),BorderLayout.WEST);
 
@@ -167,10 +154,8 @@ public class LevelsPanel extends JPanel{
         
         //create userInputPanel************************
         JPanel outerUserPanel = new JPanel(new BorderLayout());
-        //JPanel userInputPanel= new JPanel();
         JPanel userInputPanel= new JPanel(new FlowLayout(FlowLayout.LEFT));
-        //userInputPanel.setLayout(new BoxLayout(userInputPanel , BoxLayout.Y_AXIS));
- 
+
         //inside userInputPanel:
         //create instructionLabel
         JLabel instructionLabel = new JLabel("Insert your Sentence:");
@@ -178,9 +163,6 @@ public class LevelsPanel extends JPanel{
         instructionLabel.setHorizontalAlignment(JLabel.LEFT);
 
         //create userInputTextField
-        //JTextField userInputTextField = new JTextField("Type your sentences here (using the above word bank)",20);
-        //userInputTextField.setEditable(true);
-        //userInputTextField.setFont(new Font(Font.SANS_SERIF, Font.ROMAN_BASELINE, 18));
         userInputTextArea.setEditable(true);
         userInputTextArea.setText("Type your sentences here (using the above word banks)");
         userInputTextArea.setFont(new Font(Font.SANS_SERIF, Font.ROMAN_BASELINE+Font.ITALIC, 18));
@@ -194,11 +176,9 @@ public class LevelsPanel extends JPanel{
             } 
         });
 
-        //add instructionLabel to userInputPanel JPanel
-        userInputPanel.add(instructionLabel);
-        //add userInputTextArea to userInputPanel Jpanel
-        userInputPanel.add(userInputTextArea);
-        //userInputPanel.setPreferredSize(new Dimension(400,150));
+ 
+        userInputPanel.add(instructionLabel);               //add instructionLabel to userInputPanel JPanel
+        userInputPanel.add(userInputTextArea);              //add userInputTextArea to userInputPanel Jpanel
         outerUserPanel.add(userInputPanel);
         outerUserPanel.add(createBlankPanel(40, 100),BorderLayout.EAST);
         outerUserPanel.add(createBlankPanel(40, 100),BorderLayout.WEST);
@@ -207,32 +187,33 @@ public class LevelsPanel extends JPanel{
 
         //format buttons
         Font buttonFont = new Font(Font.SANS_SERIF, Font.ITALIC, 26);
-        //format check your sentence button
-        checkButton.setFont(buttonFont);
+
+        checkButton.setFont(buttonFont);               //format check your sentence button
         checkButton.setForeground(Color.BLUE);
         checkButton.setAlignmentY(Component.CENTER_ALIGNMENT);
         checkButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         checkButton.setMinimumSize(new Dimension(300,50));
-
-        //format exitGame button
-        exitButton.setFont(buttonFont);
+        
+        exitButton.setFont(buttonFont);                 //format check your sentence button
         exitButton.setForeground(Color.RED);
         exitButton.setAlignmentY(Component.CENTER_ALIGNMENT);
         exitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         exitButton.setMinimumSize(new Dimension(300,50));
 
-        //add everything to main panel
-        //add(component); 
+        //add everything to main panel      
+        //add Top panels to main LevelPanel
+        add(scorePanel);
+        add(titleLabel);
+        add(scoreTotalLabel);
+
+        //add middle and bottom panels to main LevelPanel
         add(middlePanel);
         add(outerUserPanel); //contains instructions and inputTextField
         add(checkButton);
         add(createBlankPanel(300, 20));
         add(exitButton);
         add(createBlankPanel(300, 20));
-
-
-
-    }
+    }   //end of constructor for Levels Panel
     
     //create blank panels method
     JPanel createBlankPanel(int x, int y){
@@ -244,7 +225,7 @@ public class LevelsPanel extends JPanel{
         return blankPanel;
     }
 
-    void increaseLevels(){
+    void increaseLevels(){      //method to increase score, and level(levels upgrade every 5 pts)
         score+=1;
         scoreLabel.setText("Score: "+score);
         if (score % 5==0){
