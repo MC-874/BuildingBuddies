@@ -65,7 +65,7 @@ public class BuildBuddiesMainWindow extends JFrame {
 
         levelsPanel.exitButton.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                //method for exitButton, dipose frame & exits system
+                //method for exitButton, dispose frame & exits system
                 dispose();
                 System.exit(0);
             }
@@ -83,7 +83,7 @@ public class BuildBuddiesMainWindow extends JFrame {
 
         void runGrammarCheck() throws Exception{
 
-        /**** usese input to write a string into the test.txt file */
+        /**** uses input to write a string into the test.txt file */
         try{
             FileOutputStream fOut = new FileOutputStream("test.txt");
             byte b[] = test2.getBytes();
@@ -93,7 +93,7 @@ public class BuildBuddiesMainWindow extends JFrame {
             System.out.println("System.out.println(e)");
         }
 
-        /******gets input from file  and inserts it into antler pipline**/
+        /******gets input from file  and inserts it into antlr pipline**/
         FileInputStream fIN = new FileInputStream("test.txt");
         CharStream input = CharStreams.fromStream(fIN);
 
@@ -125,7 +125,7 @@ public class BuildBuddiesMainWindow extends JFrame {
         //alternative3
         //System.out.println(tree.toStringTree(parser)); // print tree in text form
         JOptionPane.showMessageDialog(null, tree.toStringTree(parser),"Parse Tree: ", JOptionPane.INFORMATION_MESSAGE);
-        fIN.close();        //closese the input stream
+        fIN.close();        //closes the input stream
 
     }
 
