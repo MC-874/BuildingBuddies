@@ -16,21 +16,21 @@ public class MyVisitor extends SentenceGrammarBaseVisitor<Object>{
 
         String temp= LevelsPanel.userInputTextArea.getText();       //gets string text from user
         
-        for(int i = 0; i < LevelsPanel.nounVariables.length; i++){      //compairs user input to noun bank array
+        for(int i = 0; i < LevelsPanel.nounVariables.length; i++){      //compares user input to noun bank array
                 if(temp.contains(LevelsPanel.nounVariables[i])){
                     hasNoun=true;
                     break;
                 }
         }
 
-        for(int i = 0; i < LevelsPanel.objectVariables.length; i++){      //compairs user input to object bank array
+        for(int i = 0; i < LevelsPanel.objectVariables.length; i++){      //compares user input to object bank array
                 if(temp.contains(LevelsPanel.objectVariables[i])){
                     hasObject=true;
                     break;
                 }
         }
 
-        for(int i = 0; i < LevelsPanel.verbVariables.length; i++){      //compairs user input to verb bank array
+        for(int i = 0; i < LevelsPanel.verbVariables.length; i++){      //compares user input to verb bank array
                 if(temp.contains(LevelsPanel.verbVariables[i])){
                     hasVerb=true;
                     break;
