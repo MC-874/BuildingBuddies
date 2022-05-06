@@ -30,7 +30,7 @@ public class BuildBuddiesMainWindow extends JFrame {
         StartPanel startPanel = new StartPanel();
         startPanel.startButton.addActionListener(new ActionListener(){  //startPanel's button actionLister
             public void actionPerformed(ActionEvent e){
-                //method for startbutton, goes to next 
+                //method for startButton, goes to next 
                 cLayout.next(panelContainer);
             }
         });
@@ -46,7 +46,7 @@ public class BuildBuddiesMainWindow extends JFrame {
         LevelsPanel levelsPanel = new LevelsPanel();
         levelsPanel.checkButton.addActionListener(new ActionListener(){        //levelsPanels's button actionLister
             public void actionPerformed(ActionEvent e){
-                //method for checkbutton to check grammar and return outcome to user        
+                //method for checkButton to check grammar and return outcome to user        
                 test2 = LevelsPanel.userInputTextArea.getText();    //gets user input
                 try {         
                     runGrammarCheck();                        //runs grammar check
@@ -75,7 +75,7 @@ public class BuildBuddiesMainWindow extends JFrame {
         panelContainer.add(startPanel, "1"); //need -?? 'panelContainer'??
         panelContainer.add(levelsPanel, "2");
 
-        //set card1 to visable & frame to visable
+        //set card1 to visible & frame to visible
         cLayout.show(panelContainer, "1"); //show card1 when new instance is created
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
@@ -93,7 +93,7 @@ public class BuildBuddiesMainWindow extends JFrame {
             System.out.println("System.out.println(e)");
         }
 
-        /******gets input from file  and inserts it into antlr pipline**/
+        /******gets input from file  and inserts it into antlr pipeline**/
         FileInputStream fIN = new FileInputStream("test.txt");
         CharStream input = CharStreams.fromStream(fIN);
 
