@@ -63,7 +63,7 @@ public class LevelsPanel extends JPanel{
         nounPanel.setAlignmentY(CENTER_ALIGNMENT);
             
         
-        //create &format nounLabel
+        //create & format nounLabel
         JLabel nounLabel = new JLabel("Nouns: ");
         nounLabel.setLayout(new BorderLayout());
         nounLabel.setFont(new Font("middleFont", Font.BOLD, 20));        //**** */
@@ -123,7 +123,7 @@ public class LevelsPanel extends JPanel{
         objectPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
         objectPanel.setAlignmentY(CENTER_ALIGNMENT);             
         
-        //create &format subjectLabel
+        //create & format subjectLabel
         JLabel objectLabel = new JLabel("Objects: ");
         objectLabel.setLayout(new BorderLayout());
         objectLabel.setFont(new Font("middleFont", Font.BOLD, 20));        //**** */
