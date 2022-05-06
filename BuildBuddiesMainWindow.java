@@ -28,7 +28,7 @@ public class BuildBuddiesMainWindow extends JFrame {
 
         //create cardPanels and their action listeners and adds to CardLayout
         StartPanel startPanel = new StartPanel();
-        startPanel.startButton.addActionListener(new ActionListener(){  //startPanel's button actionLister
+        startPanel.startButton.addActionListener(new ActionListener(){  //startPanel's button actionListener
             public void actionPerformed(ActionEvent e){
                 //method for startButton, goes to next 
                 cLayout.next(panelContainer);
@@ -44,7 +44,7 @@ public class BuildBuddiesMainWindow extends JFrame {
         });
 
         LevelsPanel levelsPanel = new LevelsPanel();
-        levelsPanel.checkButton.addActionListener(new ActionListener(){        //levelsPanels's button actionLister
+        levelsPanel.checkButton.addActionListener(new ActionListener(){        //levelsPanels's button actionListener
             public void actionPerformed(ActionEvent e){
                 //method for checkButton to check grammar and return outcome to user        
                 test2 = LevelsPanel.userInputTextArea.getText();    //gets user input
@@ -72,7 +72,7 @@ public class BuildBuddiesMainWindow extends JFrame {
         });
         
         //add panels to the frame's panel container
-        panelContainer.add(startPanel, "1"); //need -?? 'panelContainer'??
+        panelContainer.add(startPanel, "1"); 
         panelContainer.add(levelsPanel, "2");
 
         //set card1 to visible & frame to visible
@@ -90,7 +90,7 @@ public class BuildBuddiesMainWindow extends JFrame {
             fOut.write(b);
             fOut.close();
         }catch(Exception e){
-            System.out.println("System.out.println(e)");
+            System.out.println("**Error***"+e);
         }
 
         /******gets input from file  and inserts it into antlr pipeline**/

@@ -66,14 +66,14 @@ public class LevelsPanel extends JPanel{
         //create & format nounLabel
         JLabel nounLabel = new JLabel("Nouns: ");
         nounLabel.setLayout(new BorderLayout());
-        nounLabel.setFont(new Font("middleFont", Font.BOLD, 20));        //**** */
+        nounLabel.setFont(new Font("middleFont", Font.BOLD, 20));        
         nounLabel.setVerticalAlignment(JLabel.CENTER);
                
         //create & format nounTextArea
         JTextArea nounTextArea= new JTextArea(2,5);
         //add noun string array into text field
         nounTextArea.setText(Arrays.toString(nounVariables)); 
-        nounTextArea.setFont(new Font("subtMiddleFont", Font.PLAIN +Font.ITALIC, 20));    //*** */
+        nounTextArea.setFont(new Font("subtMiddleFont", Font.PLAIN +Font.ITALIC, 20));    
         nounTextArea.setPreferredSize(new Dimension(350,60));
         nounTextArea.setLineWrap(true);
         nounTextArea.setWrapStyleWord(true);
@@ -194,7 +194,7 @@ public class LevelsPanel extends JPanel{
         checkButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         checkButton.setMinimumSize(new Dimension(300,50));
         
-        exitButton.setFont(buttonFont);                 //format check your sentence button
+        exitButton.setFont(buttonFont);                 //format exit button
         exitButton.setForeground(Color.RED);
         exitButton.setAlignmentY(Component.CENTER_ALIGNMENT);
         exitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
