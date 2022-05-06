@@ -8,13 +8,13 @@ Step 2: set doskeys to run ANTLR: "doskey antlr4=java org.antlr.v4.Tool $*" and 
 
 Step 3: Type "antlr4 SentenceGrammar.g4" to compile grammar file.
 
-Step 4: Type "java org.antlr.v4.Tool -no-listener -visitor SentenceGrammar.g4" to generate a visitor
+Step 4: Type "antlr4 -no-listener -visitor SentenceGrammar.g4" to generate a visitor.
 
-Step 5: Type "javac SentenceGrammar*.java" to compile all java files
+Step 5: Type "javac SentenceGrammar*.java" to compile all java files.
 
-Step 6: Switch to an IDE such as Eclipse or Visual Studio Code.
+Step 6: Compile all other java files in folder and Run "BuildBuddiesMainWindow" with "java BuildBuddiesMainWindow" in the CMD.
 
-Step 7: Import all project files to the IDE.
+Step 7: Import all project files to the IDE and run the code.
 
 Step 8: Run the IDE.
 
